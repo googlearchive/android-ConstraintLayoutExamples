@@ -20,13 +20,14 @@
         app:layout_constraintRight_toRightOf="@+id/textView9"
         app:layout_constraintLeft_toLeftOf="@+id/textView9"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        tools:layout_constraintLeft_creator="1"
+        android:contentDescription="@string/lake_tahoe_image" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cool Lake Picture"
+        android:text="@string/lake_tahoe_title"
         android:textSize="30sp"
         app:layout_constraintRight_toLeftOf="@+id/textView11"
         app:layout_constraintLeft_toLeftOf="parent"

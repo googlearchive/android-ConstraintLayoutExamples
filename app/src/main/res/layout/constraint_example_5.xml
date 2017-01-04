@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="AspectRatio"
+        android:text="@string/aspect_ratio"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Big Android Icon"
+        android:text="@string/big_android_icon"
         android:textSize="24sp"
         app:layout_constraintLeft_toRightOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -36,7 +36,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -50,6 +50,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/lake_tahoe_image"
         app:layout_constraintDimensionRatio="h,16:9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -69,5 +70,6 @@
         app:layout_constraintTop_toTopOf="@+id/textView4"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintDimensionRatio="w,1:1" />
+        app:layout_constraintDimensionRatio="w,1:1"
+        android:contentDescription="@string/android_button" />
 </android.support.constraint.ConstraintLayout>
