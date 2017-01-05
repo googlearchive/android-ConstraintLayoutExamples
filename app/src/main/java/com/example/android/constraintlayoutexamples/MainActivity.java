@@ -1,20 +1,28 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.android.constraintlayoutexamples;
 
-import android.content.res.Configuration;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.transition.TransitionManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private boolean mShowingLayout = false;
-    ConstraintSet mSetNormal = new ConstraintSet();
-    ConstraintSet mSetBig = new ConstraintSet();
-    ConstraintSet mSetBigLandscape = new ConstraintSet();
-    ConstraintLayout mLayout;
-    boolean mBig = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +35,6 @@ public class MainActivity extends AppCompatActivity {
         int id = getResources().getIdentifier(tag, "layout", getPackageName());
         setContentView(id);
         mShowingLayout = true;
-        if (tag.equals("constraint_example_7")) {
-            mLayout = (ConstraintLayout) findViewById(R.id.activity_main);
-            mSetNormal.load(this, R.layout.constraint_example_7);
-            mSetBig.load(this, R.layout.constraint_example_7a);
-            mSetBigLandscape.load(this, R.layout.constraint_example_7b);
-        } else {
-            mLayout = null;
-        }
     }
 
     @Override
@@ -47,31 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void toggleMode(View v) {
-        TransitionManager.beginDelayedTransition(mLayout);
-        mBig = !mBig;
-        int orientation = getResources().getConfiguration().orientation;
-        layout7(orientation == Configuration.ORIENTATION_LANDSCAPE);
-    }
-
-    private void layout7(boolean landscape) {
-        if (mLayout == null) {
-            return;
-        }
-        if (mBig) {
-            if (landscape) {
-                mSetBigLandscape.applyTo(mLayout);
-            } else {
-                mSetBig.applyTo(mLayout);
-            }
-        } else {
-            mSetNormal.applyTo(mLayout);
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        layout7(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
+    public void showConstraintSetExample(View view) {
+        startActivity(new Intent(this, ConstraintSetExampleActivity.class));
     }
 }

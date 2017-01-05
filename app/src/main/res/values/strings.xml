@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ConstraintLayoutExamples</string>
+    <string name="app_name">Constraint Layout Examples</string>
     <string name="lake_discription">
         Lake Tahoe is a large freshwater lake in the Sierra Nevada of the United States. At a surface
         elevation of 6,225 ft (1,897 m), it straddles the border between California and Nevada, west
@@ -15,9 +15,8 @@ The lake was formed about 2 million years ago and is a part of the Lake Tahoe Ba
         national forest land, comprising the Lake Tahoe Basin Management Unit of the United States
         Forest Service.
     </string>
-    <string name="constraint_layout_examples">Constraint Layout Examples</string>
     <string name="lake_tahoe_image">Image of Lake Tahoe</string>
-    <string name="lake_tahoe_title">Lake Tahoe Picture</string>
+    <string name="lake_tahoe_title">Lake Tahoe</string>
     <string name="android_button">Android Button</string>
     <string name="centering_views">Centering Views</string>
     <string name="centered_button">Centered Button</string>
