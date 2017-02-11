@@ -72,7 +72,8 @@
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="@+id/button31"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/button33"
@@ -84,7 +85,8 @@
         app:layout_constraintBottom_toTopOf="@+id/button32"
         app:layout_constraintTop_toTopOf="@+id/button32"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1" />
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintHorizontal_bias="0.5" />
 
     <Button
         android:id="@+id/button34"
@@ -99,6 +101,7 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="@+id/button32"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.52" />
 
 </android.support.constraint.ConstraintLayout>
