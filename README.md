@@ -20,10 +20,6 @@ Screenshots
 ![Constraint Set Example](screenshots/constraint_set_example.png "Constraint Set Example")
 ![Advanced Chains Example](screenshots/advanced_chains.png "Advanced usage of Chains")
 
-Example showing the use of ConstraintSet
-
-![Constraint Set Example](screenshot/constraint_set.gif "Constraint Set on Phone")
-
 Support
 -------
 If you've found an error in this sample, please file an issue:
