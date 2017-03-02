@@ -5,8 +5,8 @@ This repository contains a list of layouts that showcases the various features a
 
 Pre-requisites
 --------------
-- Android Studio 2.3 Beta 4
-- Constaint Layout library 1.0.0-beta5
+- Android Studio 2.3 RC 1
+- Constaint Layout library 1.0.1
 
 Getting Started
 ---------------
@@ -20,11 +20,18 @@ Screenshots
 ![Constraint Set Example](screenshots/constraint_set_example.png "Constraint Set Example")
 ![Advanced Chains Example](screenshots/advanced_chains.png "Advanced usage of Chains")
 
+Example showing the use of ConstraintSet
+
+![Constraint Set Example](screenshot/constraint_set.gif "Constraint Set on Phone")
+
 Support
 -------
-If you've found an error in this sample, please file an issue.
+If you've found an error in this sample, please file an issue:
+https://github.com/googlesamples/android-ConstraintLayoutExamples/issues
+
 To learn more about ConstraintLayout checkout the
 [Constraint Layout Training Guide](https://developer.android.com/training/constraint-layout/index.html)
+
 Patches are encouraged, and may be submitted by forking this project and
 submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
 
