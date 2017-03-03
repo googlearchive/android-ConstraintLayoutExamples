@@ -5,7 +5,7 @@ This repository contains a list of layouts that showcases the various features a
 
 Pre-requisites
 --------------
-- Android Studio 2.3 RC 1
+- Android Studio 2.3
 - Constaint Layout library 1.0.1
 
 Getting Started
