@@ -62,6 +62,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--layout_constraintLeft限定控件的左边，parent，有点像
+    RelativeLayout的alignParentLeft
+    -->
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"

@@ -86,7 +86,7 @@
         app:layout_constraintTop_toTopOf="@+id/button32"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintHorizontal_bias="0.7" />
 
     <Button
         android:id="@+id/button34"
