@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-repositories {
-    maven {
-        url 'https://maven.google.com'
-    }
-}
+//repositories {
+//    maven {
+//        url 'https://maven.google.com'
+//    }
+//}
 
 apply plugin: 'com.android.application'
 

@@ -153,7 +153,8 @@
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="81dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <Button
         android:id="@+id/button14"

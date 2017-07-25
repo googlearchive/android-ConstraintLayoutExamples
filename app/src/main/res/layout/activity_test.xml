@@ -8,29 +8,58 @@
 <!--app:layout_constraintHorizontal_bias="0.226"
 左边占整个的比例，默认是50%
 -->
+
+    <!--layout_goneMarginStart 如果左边constraint为gone时显示
+
+     Using 0dp, which is the equivalent of "MATCH_CONSTRAINT"
+     -->
+
+    <!--app:layout_constraintDimensionRatio
+    宽对高，或者高对宽的比例，必须layout_width或者layout_height设置为"0dp"
+    -->
     <Button
         android:id="@+id/button16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Button16"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="4dp"
-        app:layout_constraintDimensionRatio="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.27"
+        app:layout_constraintLeft_toRightOf="@+id/button17"
+        app:layout_constraintStart_toEndOf="@+id/button17"
+        app:layout_goneMarginStart="18dp"
+        app:layout_constraintDimensionRatio="H,16:9"
         />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        app:layout_constraintStart_toEndOf="@+id/button16"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/button16"
+        android:id="@+id/guideline7"
+        app:layout_constraintGuide_begin="283dp"
+        android:orientation="vertical"/>
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline8"
+        app:layout_constraintGuide_begin="251dp"
+        android:orientation="horizontal"/>
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button17"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
         />
+
 </android.support.constraint.ConstraintLayout>

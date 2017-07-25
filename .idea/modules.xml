@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-ConstraintLayoutExamples.iml" filepath="$PROJECT_DIR$/.idea/modules/android-ConstraintLayoutExamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-ConstraintLayoutExamples.iml" filepath="$PROJECT_DIR$/android-ConstraintLayoutExamples.iml" />
+      <module fileurl="file://D:\code\android-ConstraintLayoutExamples\.idea\modules\android-ConstraintLayoutExamples.iml" filepath="D:\code\android-ConstraintLayoutExamples\.idea\modules\android-ConstraintLayoutExamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

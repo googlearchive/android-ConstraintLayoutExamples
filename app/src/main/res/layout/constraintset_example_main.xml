@@ -30,10 +30,11 @@
         app:layout_constraintDimensionRatio="w,16:9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintTop_creator="1"
         android:contentDescription="@string/lake_tahoe_image"
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
     <TextView
         android:id="@+id/textView9"
