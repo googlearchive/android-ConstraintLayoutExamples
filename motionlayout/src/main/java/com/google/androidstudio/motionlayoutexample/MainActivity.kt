@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.CompoundButton
+import com.google.androidstudio.motionlayoutexample.fragmentsdemo.FragmentExample2Activity
+import com.google.androidstudio.motionlayoutexample.fragmentsdemo.FragmentExampleActivity
 import com.google.androidstudio.motionlayoutexample.viewpagerdemo.ViewPagerActivity
 import com.google.androidstudio.motionlayoutexample.viewpagerdemo.ViewPagerActivity2
 import kotlinx.android.synthetic.main.activity_main.*
