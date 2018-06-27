@@ -16,12 +16,15 @@
 
 package com.google.androidstudio.motionlayoutexample
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.constraint.motion.MotionLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoActivity : AppCompatActivity() {
     var motionLayout : View? = null
 
@@ -29,7 +32,7 @@ class DemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val layout = intent.getIntExtra("layout_file_id", R.layout.motion_01_basic)
         setContentView(layout)
-        motionLayout = findViewById<View>(R.id.motionLayout)
+        motionLayout = findViewById(R.id.motionLayout)
 
         if (layout == R.layout.motion_11_coordinatorlayout) {
             val icon = findViewById<ImageView>(R.id.icon)

@@ -30,7 +30,7 @@
 
         <ConstraintSet android:id="@+id/start">
             <Constraint
-                android:id="@+id/mountains"
+                android:id="@id/mountains"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:translationX="10dp"
@@ -38,7 +38,7 @@
                 android:scaleY="1.2"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/trees1"
+                android:id="@id/trees1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -46,7 +46,7 @@
                 motion:layout_constraintLeft_toLeftOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
             <Constraint
-                android:id="@+id/trees2"
+                android:id="@id/trees2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="90dp"
@@ -54,7 +54,7 @@
                 motion:layout_constraintLeft_toLeftOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
             <Constraint
-                android:id="@+id/car"
+                android:id="@id/car"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -65,7 +65,7 @@
 
         <ConstraintSet android:id="@+id/end">
             <Constraint
-                android:id="@+id/mountains"
+                android:id="@id/mountains"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:translationX="-10dp"
@@ -73,7 +73,7 @@
                 android:scaleY="1.2"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/trees1"
+                android:id="@id/trees1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
@@ -81,7 +81,7 @@
                 motion:layout_constraintLeft_toLeftOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
             <Constraint
-                android:id="@+id/trees2"
+                android:id="@id/trees2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -89,7 +89,7 @@
                 motion:layout_constraintLeft_toLeftOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
             <Constraint
-                android:id="@+id/car"
+                android:id="@id/car"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"

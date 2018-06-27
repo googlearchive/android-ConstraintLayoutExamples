@@ -29,7 +29,7 @@
 
         <ConstraintSet android:id="@+id/start">
             <Constraint
-                android:id="@+id/background"
+                android:id="@id/background"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:alpha="1.0"
@@ -37,7 +37,7 @@
                 android:scaleY="1.1"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/label"
+                android:id="@id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:rotation="-90.0"
@@ -46,14 +46,14 @@
                 motion:layout_constraintBottom_toBottomOf="@+id/guideline"
                 motion:layout_constraintStart_toStartOf="parent"/>
             <Constraint
-                android:id="@+id/sublabel"
+                android:id="@id/sublabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 motion:layout_constraintBaseline_toBaselineOf="@+id/label"
                 motion:layout_constraintStart_toEndOf="parent" />
             <Constraint
-                android:id="@+id/guideline"
+                android:id="@id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -62,7 +62,7 @@
 
         <ConstraintSet android:id="@+id/end">
             <Constraint
-                android:id="@+id/background"
+                android:id="@id/background"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:alpha="0"
@@ -70,7 +70,7 @@
                 android:translationY="0dp"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/label"
+                android:id="@id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -79,14 +79,14 @@
                 motion:layout_constraintBottom_toBottomOf="@+id/guideline"
                 motion:layout_constraintStart_toStartOf="parent" />
             <Constraint
-                android:id="@+id/sublabel"
+                android:id="@id/sublabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 motion:layout_constraintBaseline_toBaselineOf="@+id/label"
                 motion:layout_constraintEnd_toEndOf="parent" />
             <Constraint
-                android:id="@+id/guideline"
+                android:id="@id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

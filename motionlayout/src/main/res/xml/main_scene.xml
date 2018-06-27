@@ -29,11 +29,7 @@
         motion:dragDirection="dragUp" />
 
     <ConstraintSet android:id="@+id/start">
-        <!--<Constraint-->
-            <!--android:id="@+id/controls"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--motion:layout_constraintTop_toTopOf="parent" />-->
+
         <Constraint
             android:id="@+id/container"
             android:layout_marginEnd="32dp"
@@ -49,13 +45,9 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
-        <!--<Constraint-->
-            <!--android:id="@+id/controls"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--motion:layout_constraintTop_toTopOf="parent" />-->
+
         <Constraint
-            android:id="@+id/container"
+            android:id="@id/container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             motion:layout_constraintTop_toTopOf="parent"

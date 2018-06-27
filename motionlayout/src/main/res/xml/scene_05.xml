@@ -22,7 +22,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000">
         <OnSwipe
-            motion:touchAnchorId="@+id/image"
+            motion:touchAnchorId="@id/image"
             motion:touchAnchorSide="top"
             motion:dragDirection="dragUp" />
     </Transition>
@@ -30,7 +30,7 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/image"
+            android:id="@id/image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             motion:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/image"
+            android:id="@id/image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             motion:layout_constraintBottom_toBottomOf="parent"

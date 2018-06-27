@@ -25,7 +25,7 @@
         <ConstraintSet android:id="@+id/start">
 
             <Constraint
-                android:id="@+id/background"
+                android:id="@id/background"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
                 motion:layout_constraintVertical_bias="0.38" />
 
             <Constraint
-                android:id="@+id/name"
+                android:id="@id/name"
                 android:layout_width="162dp"
                 android:layout_height="41dp"
                 android:layout_marginStart="8dp"
@@ -51,7 +51,7 @@
                 motion:layout_constraintTop_toBottomOf="@+id/icon" />
 
             <Constraint
-                android:id="@+id/icon"
+                android:id="@id/icon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="8dp"
@@ -68,7 +68,7 @@
                 motion:srcCompat="@drawable/roard" />
 
             <Constraint
-                android:id="@+id/textView"
+                android:id="@id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -85,7 +85,7 @@
 
         <ConstraintSet android:id="@+id/end">
             <Constraint
-                android:id="@+id/background"
+                android:id="@id/background"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:visibility="invisible"
@@ -96,7 +96,7 @@
                 motion:layout_constraintVertical_bias="0.38" />
 
             <Constraint
-                android:id="@+id/name"
+                android:id="@id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginStart="8dp"
@@ -106,7 +106,7 @@
                 motion:layout_constraintStart_toStartOf="parent" />
 
             <Constraint
-                android:id="@+id/icon"
+                android:id="@id/icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="8dp"
@@ -116,7 +116,7 @@
                 motion:layout_constraintEnd_toEndOf="parent" />
 
             <Constraint
-                android:id="@+id/textView"
+                android:id="@id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone" />

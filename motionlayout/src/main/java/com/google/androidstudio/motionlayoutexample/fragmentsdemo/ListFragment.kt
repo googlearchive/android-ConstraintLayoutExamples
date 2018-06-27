@@ -16,11 +16,11 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,23 +35,14 @@ class ListFragment : Fragment() {
         fun newInstance() = ListFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        System.out.println("onCreateView, container is " + container)
+        Log.i(ListFragment::class.java.simpleName, "onCreateView, container is $container")
         return inflater.inflate(R.layout.motion_22_list_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        motionLayout = view.findViewById(R.id.main)
-        recyclerView = view.findViewById<RecyclerView>(R.id.list)
+        recyclerView = view.findViewById(R.id.list)
 
         recyclerView.layoutManager = LinearLayoutManager(
                 context, LinearLayout.VERTICAL, false)
@@ -73,7 +64,7 @@ class ListFragment : Fragment() {
         users.add(User("John", "Dr"))
         users.add(User("Amy", "Mrs"))
 
-        var adapter = CustomAdapter(users)
+        val adapter = CustomAdapter(users)
         recyclerView.adapter = adapter
 
         super.onViewCreated(view, savedInstanceState)

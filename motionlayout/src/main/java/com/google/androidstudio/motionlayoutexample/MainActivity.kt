@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    var doShowPaths = false
+    private var doShowPaths = false
 
     private val myDataset: Array<DemosAdapter.Demo> = arrayOf(
             DemosAdapter.Demo("Basic Example (1/2)", "Basic motion example using referenced ConstraintLayout files", R.layout.motion_01_basic),

@@ -28,23 +28,21 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
     override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, progress: Float) {
         if (progress - lastProgress > 0) {
             // from start to end
-            var atEnd = Math.abs(progress - 1f) < 0.1f
+            val atEnd = Math.abs(progress - 1f) < 0.1f
             if (atEnd && fragment is MainFragment) {
-                var transaction = supportFragmentManager.beginTransaction()
+                val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
                 fragment = ListFragment.newInstance()
-//                fragment = SecondFragment.newInstance()
-//                (fragment as SecondFragment).setEnterTransition((fragment as SecondFragment).view)
                 transaction
                         .replace(R.id.container, fragment)
                         .commitNow()
             }
         } else {
             // from end to start
-            var atStart = progress < 0.9f
+            val atStart = progress < 0.9f
             if (atStart && fragment is ListFragment) {
-                var transaction = supportFragmentManager.beginTransaction()
+                val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
                 fragment = MainFragment.newInstance()
@@ -80,7 +78,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
 
     override fun onClick(view: View?) {
         if (view?.id == R.id.toggle) {
-            var transaction = supportFragmentManager.beginTransaction()
+            val transaction = supportFragmentManager.beginTransaction()
             fragment = if (fragment == null || fragment is MainFragment) {
                 last = 1f
                 transaction

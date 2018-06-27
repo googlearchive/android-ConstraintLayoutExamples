@@ -26,20 +26,20 @@ class DemosAdapter(private val myDataset: Array<DemosAdapter.Demo>) :
         RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
 
     data class Demo(val title: String, val description : String, val layout : Int = 0, val activity : Class<*> = DemoActivity::class.java) {
-        constructor(title: String, description: String, activity : Class<*> = DemoActivity::class.java) : this(title, description, 0, activity) {}
+        constructor(title: String, description: String, activity : Class<*> = DemoActivity::class.java) : this(title, description, 0, activity)
     }
 
     class ViewHolder(val layout: ConstraintLayout) : RecyclerView.ViewHolder(layout) {
-        var title = layout.findViewById<TextView>(R.id.title)
-        var description = layout.findViewById<TextView>(R.id.description)
+        var title = layout.findViewById(R.id.title) as TextView
+        var description = layout.findViewById(R.id.description) as TextView
         var layoutFileId = 0
         var activity : Class<*>? = null
 
         init {
             layout.setOnClickListener {
                 val context = it?.context as MainActivity
-                if (activity != null) {
-                    context.start(activity!!, layoutFileId)
+                activity?.let {
+                    context.start(it, layoutFileId)
                 }
             }
         }

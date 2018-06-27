@@ -33,7 +33,7 @@ class ViewPagerActivity2 : AppCompatActivity() {
         setContentView(layout)
         motionLayout = findViewById(R.id.motionLayout)
 
-        var adapter = ViewPagerAdapter(supportFragmentManager)
+        val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addPage("Page 1", R.layout.motion_16_viewpager_page1)
         adapter.addPage("Page 2", R.layout.motion_16_viewpager_page2)
         adapter.addPage("Page 3", R.layout.motion_16_viewpager_page3)

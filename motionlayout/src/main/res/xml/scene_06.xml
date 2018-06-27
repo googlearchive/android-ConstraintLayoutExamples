@@ -32,13 +32,13 @@
                 motion:type="pathRelative"
                 motion:percentY="-0.25"
                 motion:framePosition="50"
-                motion:target="@+id/button"/>
+                motion:target="@id/button"/>
         </KeyFrameSet>
     </Transition>
     
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/button"
+            android:id="@id/button"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginStart="8dp"
@@ -53,7 +53,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/button"
+            android:id="@id/button"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginEnd="8dp"

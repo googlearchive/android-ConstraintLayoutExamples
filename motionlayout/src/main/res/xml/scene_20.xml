@@ -14,12 +14,11 @@
   limitations under the License.
   -->
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:motion="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:motion="http://schemas.android.com/apk/res-auto" >
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/imageView8"
+            android:id="@id/imageView8"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="0dp"
@@ -29,7 +28,7 @@
             motion:layout_editor_absoluteX="0dp"
             motion:layout_editor_absoluteY="0dp" />
         <Constraint
-            android:id="@+id/textView23"
+            android:id="@id/textView23"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -42,16 +41,16 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@+id/textView24" />
         <Constraint
-            android:id="@+id/imageButton2"
+            android:id="@id/imageButton2"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"></Constraint>
+            motion:layout_constraintEnd_toEndOf="parent" />
         <Constraint
-            android:id="@+id/textView24"
+            android:id="@id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -59,7 +58,7 @@
             motion:layout_constraintStart_toStartOf="@+id/textView23"
             motion:layout_constraintTop_toBottomOf="@+id/imageView8" />
         <Constraint
-            android:id="@+id/imageView9"
+            android:id="@id/imageView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="0dp"
@@ -72,7 +71,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/imageView8"
+            android:id="@id/imageView8"
             android:layout_width="0dp"
             android:layout_height="426dp"
             android:layout_marginTop="0dp"
@@ -80,7 +79,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
-            android:id="@+id/textView23"
+            android:id="@id/textView23"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -94,7 +93,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@+id/textView24" />
         <Constraint
-            android:id="@+id/imageButton2"
+            android:id="@id/imageButton2"
             android:layout_width="64dp"
             android:layout_height="64dp"
             motion:layout_constraintBottom_toBottomOf="@+id/imageView8"
@@ -102,7 +101,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@+id/imageView8" />
         <Constraint
-            android:id="@+id/textView24"
+            android:id="@id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -110,7 +109,7 @@
             motion:layout_constraintStart_toStartOf="@+id/textView23"
             motion:layout_constraintTop_toBottomOf="@+id/imageView8" />
         <Constraint
-            android:id="@+id/imageView9"
+            android:id="@id/imageView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
