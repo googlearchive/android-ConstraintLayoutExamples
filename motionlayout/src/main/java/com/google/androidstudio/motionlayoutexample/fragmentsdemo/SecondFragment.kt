@@ -16,10 +16,10 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.constraint.motion.MotionLayout
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,17 +33,9 @@ class SecondFragment : Fragment() {
         fun newInstance() = SecondFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.motion_21_second_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,7 +45,6 @@ class SecondFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        System.out.println("onStart of fragment...")
-//        motionLayout.transitionToEnd()
+        Log.i(SecondFragment::class.java.simpleName, "onStart of fragment...")
     }
 }

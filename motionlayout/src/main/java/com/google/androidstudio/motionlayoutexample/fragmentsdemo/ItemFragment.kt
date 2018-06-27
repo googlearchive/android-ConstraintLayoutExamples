@@ -16,7 +16,6 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -31,17 +30,9 @@ class ItemFragment : Fragment() {
         fun newInstance() = ItemFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.item_layout, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     private lateinit var myHolder: CustomAdapter.ViewHolder
@@ -54,7 +45,7 @@ class ItemFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (myHolder != null) {
+        if (this::myHolder.isInitialized) {
             update(myHolder)
         }
     }

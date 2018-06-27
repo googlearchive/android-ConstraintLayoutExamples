@@ -22,11 +22,6 @@
         motion:duration="1000"
         motion:interpolator="linear" />
 
-    <!--<OnSwipe-->
-        <!--motion:touchAnchorId="@+id/message"-->
-        <!--motion:touchAnchorSide="top"-->
-        <!--motion:dragDirection="dragUp" />-->
-
     <ConstraintSet android:id="@+id/start">
     </ConstraintSet>
 

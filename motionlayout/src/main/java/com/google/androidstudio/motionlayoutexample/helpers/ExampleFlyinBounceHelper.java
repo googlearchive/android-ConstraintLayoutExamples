@@ -26,7 +26,6 @@ import android.view.animation.BounceInterpolator;
 
 public class ExampleFlyinBounceHelper extends ConstraintHelper {
     protected ConstraintLayout mContainer;
-    private static final String TAG = "Layer";
 
     public ExampleFlyinBounceHelper(Context context) {
         super(context);

@@ -54,12 +54,12 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/controls"
+            android:id="@id/controls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
-            android:id="@+id/rv_container"
+            android:id="@id/rv_container"
             android:layout_width="match_parent"
             android:layout_margin="8dp"
             android:layout_height="200dp"
@@ -70,7 +70,7 @@
                 motion:customColorValue="@color/colorAccent" />
         </Constraint>
         <Constraint
-            android:id="@+id/rv_item_placeholder"
+            android:id="@id/rv_item_placeholder"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             motion:layout_constraintBottom_toBottomOf="parent"

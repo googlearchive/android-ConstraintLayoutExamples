@@ -30,13 +30,13 @@
 
         <ConstraintSet android:id="@+id/start">
             <Constraint
-                android:id="@+id/motionLayout"
+                android:id="@id/motionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 motion:layout_constraintTop_toTopOf="parent" />
 
             <Constraint
-                android:id="@+id/scrollable"
+                android:id="@id/scrollable"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
                 motion:progress="1"/>
 
             <Constraint
-                android:id="@+id/scrollable"
+                android:id="@id/scrollable"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 motion:layout_constraintBottom_toBottomOf="parent"

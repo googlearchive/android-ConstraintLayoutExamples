@@ -26,7 +26,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-public class TouchFrameLayout extends FrameLayout implements NestedScrollingParent2{
+public class TouchFrameLayout extends FrameLayout implements NestedScrollingParent2 {
 
 
     public TouchFrameLayout(@NonNull Context context) {

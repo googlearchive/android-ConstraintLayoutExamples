@@ -29,13 +29,13 @@
 
         <ConstraintSet android:id="@+id/start">
             <Constraint
-                android:id="@+id/button"
+                android:id="@id/button"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/content"
+                android:id="@id/content"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 motion:layout_constraintWidth_default="percent"
@@ -46,13 +46,13 @@
 
         <ConstraintSet android:id="@+id/end">
             <Constraint
-                android:id="@+id/button"
+                android:id="@id/button"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent"/>
             <Constraint
-                android:id="@+id/content"
+                android:id="@id/content"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 motion:layout_constraintWidth_default="percent"

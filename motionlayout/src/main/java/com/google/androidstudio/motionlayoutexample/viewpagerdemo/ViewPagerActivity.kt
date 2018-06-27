@@ -31,9 +31,9 @@ class ViewPagerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val layout = R.layout.motion_16_viewpager
         setContentView(layout)
-        motionLayout = findViewById<View>(R.id.motionLayout)
+        motionLayout = findViewById(R.id.motionLayout)
 
-        var adapter = ViewPagerAdapter(supportFragmentManager)
+        val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addPage("Page 1", R.layout.motion_16_viewpager_page1)
         adapter.addPage("Page 2", R.layout.motion_16_viewpager_page2)
         adapter.addPage("Page 3", R.layout.motion_16_viewpager_page3)
@@ -43,7 +43,7 @@ class ViewPagerActivity : AppCompatActivity() {
             pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
         }
 
-        var doShowPaths = intent.getBooleanExtra("showPaths", false)
+        val doShowPaths = intent.getBooleanExtra("showPaths", false)
         (motionLayout as? MotionLayout)?.setShowPaths(doShowPaths)
     }
 }

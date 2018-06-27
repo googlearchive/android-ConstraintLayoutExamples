@@ -24,7 +24,7 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/animation_view"
+            android:id="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             motion:progress="0"/>
@@ -32,7 +32,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/animation_view"
+            android:id="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             motion:progress="1"/>
