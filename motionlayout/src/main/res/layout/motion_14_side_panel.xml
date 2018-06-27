@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.motion.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:background="@color/colorPrimary"
+    app:layoutDescription="@xml/scene_14">
+
+    <include layout="@layout/activity_scrolling"/>
+
+    <android.support.constraint.utils.MockView
+        android:id="@+id/button"
+        app:mock_label="Side Panel"
+        app:mock_diagonalsColor="#FFF"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"/>
+
+</android.support.constraint.motion.MotionLayout>
