@@ -43,7 +43,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
 
-    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.airbnb.android:lottie:2.5.1'

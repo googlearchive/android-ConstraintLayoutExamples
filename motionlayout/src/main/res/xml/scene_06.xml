@@ -29,7 +29,7 @@
 
         <KeyFrameSet>
             <KeyPosition
-                motion:type="pathRelative"
+                motion:keyPositionType="pathRelative"
                 motion:percentY="-0.25"
                 motion:framePosition="50"
                 motion:target="@id/button"/>
