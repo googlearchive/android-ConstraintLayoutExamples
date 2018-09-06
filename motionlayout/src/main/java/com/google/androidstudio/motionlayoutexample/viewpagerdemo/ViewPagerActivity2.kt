@@ -25,13 +25,12 @@ import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 
 class ViewPagerActivity2 : AppCompatActivity() {
-    var motionLayout: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layout = R.layout.motion_23_viewpager
         setContentView(layout)
-        motionLayout = findViewById(R.id.motionLayout)
+        val motionLayout = findViewById<MotionLayout>(R.id.motionLayout)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addPage("Page 1", R.layout.motion_16_viewpager_page1)
@@ -44,6 +43,6 @@ class ViewPagerActivity2 : AppCompatActivity() {
         }
 
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        (motionLayout as? MotionLayout)?.setShowPaths(doShowPaths)
+        motionLayout.setShowPaths(doShowPaths)
     }
 }

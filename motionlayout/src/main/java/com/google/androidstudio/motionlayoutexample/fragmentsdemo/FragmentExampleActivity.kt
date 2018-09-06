@@ -58,10 +58,10 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
     override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
     }
 
-    var lastProgress = 0f
+    private var lastProgress = 0f
 
-    var fragment : Fragment? = null
-    var last : Float = 0f
+    private var fragment : Fragment? = null
+    private var last : Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

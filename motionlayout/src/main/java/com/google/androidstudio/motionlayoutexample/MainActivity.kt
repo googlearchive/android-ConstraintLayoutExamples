@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     private lateinit var viewManager: RecyclerView.LayoutManager
     private var doShowPaths = false
 
-    private val myDataset: Array<DemosAdapter.Demo> = arrayOf(
+    private val dataset: Array<DemosAdapter.Demo> = arrayOf(
             DemosAdapter.Demo("Basic Example (1/2)", "Basic motion example using referenced ConstraintLayout files", R.layout.motion_01_basic),
             DemosAdapter.Demo("Basic Example (2/2)", "Basic motion example using ConstraintSets defined in the MotionScene file", R.layout.motion_02_basic),
             DemosAdapter.Demo("Custom Attribute", "Show color interpolation (custom attribute)", R.layout.motion_03_custom_attribute),
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewManager = LinearLayoutManager(this)
-        viewAdapter = DemosAdapter(myDataset)
+        viewAdapter = DemosAdapter(dataset)
 
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview).apply {
             setHasFixedSize(true)
