@@ -31,7 +31,7 @@ class CustomAdapter(private val userList: ArrayList<User>): RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.txtName.text = userList[position].name
         holder.txtTitle.text = userList[position].title
-        holder.itemView.setOnClickListener({
+        holder.itemView.setOnClickListener {
             val parent = it?.parent?.parent?.parent?.parent
             if (parent is MotionLayout) {
                 val offsetViewBounds = Rect()
@@ -40,16 +40,16 @@ class CustomAdapter(private val userList: ArrayList<User>): RecyclerView.Adapter
                 val transaction = (it.context as AppCompatActivity).supportFragmentManager.beginTransaction()
                 val fragment = ItemFragment.newInstance()
                 fragment.update(holder)
-                transaction.replace(R.id.rv_item_placeholder, fragment)
+                transaction.replace(R.id.container, fragment)
                 transaction.commitNow()
                 parent.transitionToEnd()
             }
-        })
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return ViewHolder(v);
+        return ViewHolder(v)
     }
 
     override fun getItemCount(): Int {

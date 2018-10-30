@@ -24,7 +24,7 @@ import android.view.View
 
 class Page  : Fragment() {
 
-    var layoutId = 0
+    private var layoutId = 0
 
     override fun setArguments(args: Bundle?) {
         super.setArguments(args)

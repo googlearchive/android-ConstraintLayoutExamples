@@ -26,13 +26,13 @@ import android.widget.ImageView
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoActivity : AppCompatActivity() {
-    var motionLayout : View? = null
+    private lateinit var container: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layout = intent.getIntExtra("layout_file_id", R.layout.motion_01_basic)
         setContentView(layout)
-        motionLayout = findViewById(R.id.motionLayout)
+        container = findViewById(R.id.motionLayout)
 
         if (layout == R.layout.motion_11_coordinatorlayout) {
             val icon = findViewById<ImageView>(R.id.icon)
@@ -40,18 +40,15 @@ class DemoActivity : AppCompatActivity() {
         }
 
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        (motionLayout as? MotionLayout)?.setShowPaths(doShowPaths)
+        (container as? MotionLayout)?.setShowPaths(doShowPaths)
     }
 
     fun changeState(v: View?) {
-        if (motionLayout == null || motionLayout !is MotionLayout) {
-            return
-        }
-        val ml = motionLayout as? MotionLayout ?: return
-        if (ml.progress > 0.5f) {
-            ml.transitionToStart()
+        val motionLayout = container as? MotionLayout ?: return
+        if (motionLayout.progress > 0.5f) {
+            motionLayout.transitionToStart()
         } else {
-            ml.transitionToEnd()
+            motionLayout.transitionToEnd()
         }
     }
 }

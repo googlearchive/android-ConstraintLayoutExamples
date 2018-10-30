@@ -22,7 +22,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 
-class DemosAdapter(private val myDataset: Array<DemosAdapter.Demo>) :
+class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) :
         RecyclerView.Adapter<DemosAdapter.ViewHolder>() {
 
     data class Demo(val title: String, val description : String, val layout : Int = 0, val activity : Class<*> = DemoActivity::class.java) {
@@ -54,11 +54,11 @@ class DemosAdapter(private val myDataset: Array<DemosAdapter.Demo>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = myDataset[position].title
-        holder.description.text = myDataset[position].description
-        holder.layoutFileId = myDataset[position].layout
-        holder.activity = myDataset[position].activity
+        holder.title.text = dataset[position].title
+        holder.description.text = dataset[position].description
+        holder.layoutFileId = dataset[position].layout
+        holder.activity = dataset[position].activity
     }
 
-    override fun getItemCount() = myDataset.size
+    override fun getItemCount() = dataset.size
 }

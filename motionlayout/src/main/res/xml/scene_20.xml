@@ -140,7 +140,7 @@
                 motion:percentX="-0.2585034"
                 motion:percentY="0.50630915"
                 motion:target="@id/imageView9"
-                motion:type="deltaRelative" />
+                motion:keyPositionType="deltaRelative" />
         </KeyFrameSet>
     </Transition>
 </MotionScene>
