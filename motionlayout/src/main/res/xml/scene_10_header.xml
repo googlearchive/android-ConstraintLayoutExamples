@@ -28,14 +28,24 @@
             motion:dragDirection="dragUp" />
 
         <ConstraintSet android:id="@+id/start">
+            <!--background变化
+            alpha    1.0 -> 0.0
+            scaleXY  1.5 -> 0.0     缩小到原有比例
+            translationY 0 -> 100dp 往下移动100dp
+            -->
             <Constraint
                 android:id="@+id/background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:alpha="1.0"
-                android:scaleX="1.1"
-                android:scaleY="1.1"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
                 motion:layout_constraintBottom_toBottomOf="parent"/>
+            <!--label变化
+            rotation      -90 -> 0
+            translationY  8 -> 0
+            alpha         0.6 -> 1
+            -->
             <Constraint
                 android:id="@+id/label"
                 android:layout_width="wrap_content"

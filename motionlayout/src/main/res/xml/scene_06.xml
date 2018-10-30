@@ -31,7 +31,11 @@
             <KeyPosition
                 motion:type="pathRelative"
                 motion:percentY="-0.25"
+                motion:percentX="0.7"
                 motion:framePosition="50"
+                motion:curveFit="spline"
+                motion:sizePercent="1"
+                motion:drawPath="path"
                 motion:target="@id/button"/>
         </KeyFrameSet>
     </Transition>
@@ -54,8 +58,8 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@id/button"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="8dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"

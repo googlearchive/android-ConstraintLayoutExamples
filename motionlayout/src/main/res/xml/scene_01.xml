@@ -22,8 +22,8 @@
         motion:duration="1000">
         <OnSwipe
             motion:touchAnchorId="@+id/button"
-            motion:touchAnchorSide="right"
-            motion:dragDirection="dragRight" />
+            motion:touchAnchorSide="top"
+            motion:dragDirection="dragLeft" />
     </Transition>
 
 </MotionScene>

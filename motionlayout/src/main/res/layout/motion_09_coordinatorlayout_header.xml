@@ -13,15 +13,17 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar
     android:id="@+id/motionLayout"
-    app:layoutDescription="@xml/scene_09"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minHeight="50dp"
     android:fitsSystemWindows="false"
-    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+    android:minHeight="50dp"
+    app:layoutDescription="@xml/scene_09"
+    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
+    app:progress="0.2">
 
     <ImageView
         android:id="@+id/background"
@@ -35,10 +37,10 @@
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:transformPivotX="0dp"
-        android:transformPivotY="0dp"
         android:text="Monterey"
         android:textColor="#FFF"
-        android:textSize="32dp" />
+        android:textSize="32dp"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"/>
 
 </com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar>

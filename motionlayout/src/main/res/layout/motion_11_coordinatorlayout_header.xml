@@ -13,17 +13,17 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar
+    android:id="@+id/constraintToolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintToolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    app:layoutDescription="@xml/scene_11_header"
     android:minHeight="40dp"
+    app:layoutDescription="@xml/scene_11_header"
     app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
-
 
     <ImageView
         android:id="@+id/background"
@@ -35,25 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38"
-        app:srcCompat="@drawable/sea" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="162dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:autoSizeTextType="uniform"
-        android:text="Nicolas Roard"
-        android:textColor="@color/text"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        tools:layout_editor_absoluteX="74dp" />
+        app:srcCompat="@drawable/sea"/>
 
     <ImageView
         android:id="@+id/icon"
@@ -65,13 +47,49 @@
         android:background="@drawable/circle"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001"
+        app:layout_constraintVertical_bias="0.24"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/roard" />
+        app:srcCompat="@drawable/roard"/>
 
+    <!--
+    此布局有一个设计步骤，首先有三个元素，顶部icon离上方距离不定，底部text离下方距离也不定，而且
+    刚好是三个元素，因此首先想到的应该是Chains链式风格的设计。当垂直布局好三个元素时(收尾相连)
+    app:layout_constraintBottom_toTopOf="@+id/name"        icon
+    app:layout_constraintTop_toBottomOf="@+id/icon"        name
+    app:layout_constraintBottom_toTopOf="@+id/textView"    name
+    app:layout_constraintTop_toBottomOf="@+id/name"        text
+
+    这样就形成了Chains布局，默认是 spread 也就是空隙有填补均分到周边
+    通过app:layout_constraintVertical_chainStyle="packed"
+    调整到 packed，空隙填补到元素外
+
+    再通过 app:layout_constraintVertical_bias="0.24"
+    跳转整个Chains布局向上方靠进 0.24 的比较
+
+    在gone掉无关紧要的 textView 布局，这样就显示的将原始缩小到两个，也能轻松控制
+    布局比例
+    -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Nicolas Roard"
+        android:textColor="@color/text"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon"
+        />
+
+    <!--app:autoSizeTextType="uniform"-->
+    <!--android:layout_width="162dp"-->
+    <!--android:layout_height="41dp"-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -84,9 +102,8 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/name"/>
 
 
 </com.google.androidstudio.motionlayoutexample.utils.CollapsibleToolbar>

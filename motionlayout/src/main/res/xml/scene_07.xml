@@ -70,6 +70,7 @@
                 motion:type="pathRelative"
                 motion:percentY="-0.3"
                 motion:framePosition="50"
+                motion:drawPath="pathRelative"
                 motion:target="@id/button"/>
         </KeyFrameSet>
     </Transition>

@@ -13,21 +13,24 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<android.support.constraint.motion.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.motion.MotionLayout
     android:id="@+id/motionLayout"
-    app:layoutDescription="@xml/scene_08"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_08"
+    tools:progress="0.2"
+    tools:showPaths="true">
 
     <View
         android:id="@+id/button"
-        android:background="@color/colorAccent"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:background="@color/colorAccent"
         android:text="Button"
         tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="230dp" />
+        tools:layout_editor_absoluteY="230dp"/>
 
 </android.support.constraint.motion.MotionLayout>

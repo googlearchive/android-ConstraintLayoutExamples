@@ -65,21 +65,15 @@
                 motion:framePosition="100"
                 motion:target="@id/button"
                 motion:waveOffset="0"
-                motion:wavePeriod="0"
-                motion:waveShape="sin" />
-            <KeyCycle
-                android:translationY="50dp"
-                motion:framePosition="50"
-                motion:target="@id/button"
-                motion:waveOffset="0"
                 motion:wavePeriod="1"
-                motion:waveShape="sin" />
+                motion:waveShape="square" />
+
             <KeyCycle
                 android:translationY="50dp"
                 motion:framePosition="0"
                 motion:target="@id/button"
                 motion:waveOffset="0"
-                motion:wavePeriod="0"
+                motion:wavePeriod="2"
                 motion:waveShape="sin" />
         </KeyFrameSet>
     </Transition>

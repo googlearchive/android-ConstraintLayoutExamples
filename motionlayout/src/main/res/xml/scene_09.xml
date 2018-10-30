@@ -21,11 +21,27 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:interpolator="bounce">
         <OnSwipe
             motion:touchAnchorId="@+id/background"
             motion:touchAnchorSide="bottom"
             motion:dragDirection="dragUp" />
+
+        <ConstraintSet android:id="@+id/start">
+            <Constraint
+                android:id="@+id/background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="1.0"
+                motion:layout_constraintBottom_toBottomOf="parent"/>
+            <Constraint
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rotation="-90.0"
+                motion:layout_constraintBottom_toBottomOf="@+id/background"
+                motion:layout_constraintStart_toStartOf="parent"/>
+        </ConstraintSet>
 
         <ConstraintSet android:id="@+id/end">
             <Constraint
@@ -45,21 +61,6 @@
                 motion:layout_constraintStart_toStartOf="parent" />
         </ConstraintSet>
 
-        <ConstraintSet android:id="@+id/start">
-            <Constraint
-                android:id="@+id/background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:alpha="1.0"
-                motion:layout_constraintBottom_toBottomOf="parent"/>
-            <Constraint
-                android:id="@+id/label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rotation="-90.0"
-                motion:layout_constraintBottom_toBottomOf="@+id/background"
-                motion:layout_constraintStart_toStartOf="parent"/>
-        </ConstraintSet>
     </Transition>
 
 </MotionScene>

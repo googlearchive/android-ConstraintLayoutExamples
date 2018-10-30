@@ -31,8 +31,7 @@
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
-                motion:layout_constraintTop_toTopOf="parent"
-                motion:layout_constraintVertical_bias="0.38" />
+                motion:layout_constraintTop_toTopOf="parent" />
 
             <Constraint
                 android:id="@id/name"
@@ -48,7 +47,12 @@
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintHorizontal_bias="0.5"
                 motion:layout_constraintStart_toStartOf="parent"
-                motion:layout_constraintTop_toBottomOf="@+id/icon" />
+                motion:layout_constraintTop_toBottomOf="@+id/icon" >
+
+                <!--<CustomAttribute-->
+                    <!--motion:attributeName="TextSize"-->
+                    <!--motion:customFloatValue="28" />-->
+            </Constraint>
 
             <Constraint
                 android:id="@id/icon"
@@ -57,7 +61,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/circle"
                 motion:layout_constraintBottom_toTopOf="@+id/name"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintHorizontal_bias="0.5"
@@ -92,8 +95,7 @@
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintEnd_toEndOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
-                motion:layout_constraintTop_toTopOf="parent"
-                motion:layout_constraintVertical_bias="0.38" />
+                motion:layout_constraintTop_toTopOf="parent" />
 
             <Constraint
                 android:id="@id/name"
@@ -103,7 +105,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
-                motion:layout_constraintStart_toStartOf="parent" />
+                motion:layout_constraintStart_toStartOf="parent" >
+                <!--<CustomAttribute-->
+                    <!--motion:attributeName="TextSize"-->
+                    <!--motion:customFloatValue="18" />-->
+            </Constraint>
 
             <Constraint
                 android:id="@id/icon"
