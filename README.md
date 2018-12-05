@@ -29,7 +29,7 @@ To learn more about ConstraintLayout checkout the
 [Constraint Layout Training Guide](https://developer.android.com/training/constraint-layout/index.html)
 
 Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
+submitting a pull request through GitHub. Please see the [contributing guidelines](CONTRIBUTING.md) for more details.
 
 License
 -------
