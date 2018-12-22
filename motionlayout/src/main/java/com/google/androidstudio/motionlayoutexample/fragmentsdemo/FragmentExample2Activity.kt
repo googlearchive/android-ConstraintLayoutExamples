@@ -16,11 +16,11 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.app.Fragment
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -35,7 +35,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                         .setCustomAnimations(R.animator.show, 0)
                 fragment = ListFragment.newInstance()
                 transaction
-                        .replace(R.id.container, fragment)
+                        .replace(R.id.container, fragment as ListFragment)
                         .commitNow()
             }
         } else {
@@ -47,7 +47,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                         .setCustomAnimations(0, R.animator.hide)
                 fragment = MainFragment.newInstance()
                 transaction
-                        .replace(R.id.container, fragment)
+                        .replace(R.id.container, fragment as MainFragment)
                         .commitNow()
             }
         }
@@ -68,12 +68,13 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
         if (savedInstanceState == null) {
             fragment = MainFragment.newInstance()
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragment as MainFragment)
                     .commitNow()
         }
         //toggle.setOnClickListener(this)
         //toggleAnimation.setOnClickListener(this)
-        motionLayout.setTransitionListener(this)
+//        motionLayout.setTra
+//        motionLayout.setTransitionListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -90,7 +91,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                 MainFragment.newInstance()
             }
             transaction
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragment as Fragment)
                     .commitNow()
         }
     }

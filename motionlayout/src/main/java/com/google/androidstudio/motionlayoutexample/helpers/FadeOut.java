@@ -17,9 +17,10 @@
 package com.google.androidstudio.motionlayoutexample.helpers;
 
 import android.content.Context;
-import android.support.constraint.motion.MotionHelper;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.constraintlayout.motion.widget.MotionHelper;
 
 public class FadeOut extends MotionHelper {
 

@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<android.support.constraint.motion.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,7 +23,7 @@
 
     <include layout="@layout/activity_scrolling"/>
 
-    <android.support.constraint.utils.MockView
+    <androidx.constraintlayout.utils.widget.MockView
         android:id="@+id/button"
         app:mock_label="Side Panel"
         app:mock_diagonalsColor="#FFF"
@@ -31,4 +31,4 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark"/>
 
-</android.support.constraint.motion.MotionLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

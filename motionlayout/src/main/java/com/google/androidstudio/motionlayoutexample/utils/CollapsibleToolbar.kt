@@ -17,9 +17,9 @@
 package com.google.androidstudio.motionlayoutexample.utils
 
 import android.content.Context
-import android.support.constraint.motion.MotionLayout
-import android.support.design.widget.AppBarLayout
 import android.util.AttributeSet
+import androidx.constraintlayout.motion.widget.MotionLayout
+import com.google.android.material.appbar.AppBarLayout
 
 class CollapsibleToolbar @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

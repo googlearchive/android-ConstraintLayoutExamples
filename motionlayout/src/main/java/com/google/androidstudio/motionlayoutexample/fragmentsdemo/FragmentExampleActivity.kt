@@ -16,11 +16,11 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.app.Fragment
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -36,7 +36,7 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
                 fragment = SecondFragment.newInstance()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
-                        .replace(R.id.container, fragment)
+                        .replace(R.id.container, fragment as SecondFragment)
                         .commitNow()
             }
         } else {
@@ -48,7 +48,7 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
                         .setCustomAnimations(0, R.animator.hide)
                 fragment = MainFragment.newInstance()
                 transaction
-                        .replace(R.id.container, fragment)
+                        .replace(R.id.container, fragment as MainFragment)
                         .commitNow()
             }
         }
@@ -69,7 +69,7 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
         if (savedInstanceState == null) {
             fragment = MainFragment.newInstance()
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragment as MainFragment)
                     .commitNow()
         }
         //toggle.setOnClickListener(this)
@@ -91,7 +91,7 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
                 MainFragment.newInstance()
             }
             transaction
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragment as Fragment)
                     .commitNow()
         }
     }
