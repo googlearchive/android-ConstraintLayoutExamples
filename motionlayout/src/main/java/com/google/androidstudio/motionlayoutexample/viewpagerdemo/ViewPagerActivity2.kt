@@ -21,6 +21,7 @@ import android.support.constraint.motion.MotionLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.google.androidstudio.motionlayoutexample.Consts
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 
@@ -43,6 +44,6 @@ class ViewPagerActivity2 : AppCompatActivity() {
         }
 
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        motionLayout.setShowPaths(doShowPaths)
+        motionLayout.setDebugMode(if (doShowPaths) Consts.SHOW_PATHS else 0)
     }
 }

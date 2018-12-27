@@ -21,6 +21,7 @@ import android.support.constraint.motion.MotionLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.google.androidstudio.motionlayoutexample.Consts
 import com.google.androidstudio.motionlayoutexample.R
 
 class YouTubeDemoActivity : AppCompatActivity() {
@@ -37,6 +38,6 @@ class YouTubeDemoActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@YouTubeDemoActivity)
         }
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        motionLayout.setShowPaths(doShowPaths)
+        motionLayout.setDebugMode(if (doShowPaths) Consts.SHOW_PATHS else 0)
     }
 }
