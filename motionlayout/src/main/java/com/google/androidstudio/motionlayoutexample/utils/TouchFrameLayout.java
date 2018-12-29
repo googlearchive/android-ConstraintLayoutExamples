@@ -17,13 +17,13 @@
 package com.google.androidstudio.motionlayoutexample.utils;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.NestedScrollingParent2;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.FrameLayout;
 
 public class TouchFrameLayout extends FrameLayout implements NestedScrollingParent2 {
 

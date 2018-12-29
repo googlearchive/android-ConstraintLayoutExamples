@@ -23,10 +23,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.androidstudio.motionlayoutexample.youtubedemo.YouTubeDemoViewHolder.CatRowViewHolder
-import com.google.androidstudio.motionlayoutexample.youtubedemo.YouTubeDemoViewHolder.TextDescriptionViewHolder
-import com.google.androidstudio.motionlayoutexample.youtubedemo.YouTubeDemoViewHolder.TextHeaderViewHolder
 import com.google.androidstudio.motionlayoutexample.R
+import com.google.androidstudio.motionlayoutexample.youtubedemo.YouTubeDemoViewHolder.*
 
 class FrontPhotosAdapter : RecyclerView.Adapter<YouTubeDemoViewHolder>() {
 

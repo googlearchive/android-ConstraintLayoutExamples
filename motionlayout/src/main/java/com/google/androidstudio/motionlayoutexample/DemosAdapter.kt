@@ -16,10 +16,10 @@
 
 package com.google.androidstudio.motionlayoutexample
 
-import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) :
