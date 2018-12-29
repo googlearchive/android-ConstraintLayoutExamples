@@ -25,6 +25,12 @@ import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
 class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
+
+    private var lastProgress = 0f
+
+    private var fragment : Fragment? = null
+    private var last : Float = 0f
+
     override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, progress: Float) {
         if (progress - lastProgress > 0) {
             // from start to end
@@ -35,7 +41,7 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                         .setCustomAnimations(R.animator.show, 0)
                 fragment = ListFragment.newInstance()
                 transaction
-                        .replace(R.id.container, fragment as ListFragment)
+                        .replace(R.id.container, fragment!!)
                         .commitNow()
             }
         } else {
@@ -56,11 +62,6 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
 
     override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
     }
-
-    private var lastProgress = 0f
-
-    private var fragment : Fragment? = null
-    private var last : Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

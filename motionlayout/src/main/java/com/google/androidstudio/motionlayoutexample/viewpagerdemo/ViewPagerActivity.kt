@@ -19,6 +19,7 @@ package com.google.androidstudio.motionlayoutexample.viewpagerdemo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.viewpager.widget.ViewPager
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 
@@ -37,7 +38,7 @@ class ViewPagerActivity : AppCompatActivity() {
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
         if (motionLayout != null) {
-            pager.addOnPageChangeListener(motionLayout as androidx.viewpager.widget.ViewPager.OnPageChangeListener)
+            pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
         }
 
         val doShowPaths = intent.getBooleanExtra("showPaths", false)

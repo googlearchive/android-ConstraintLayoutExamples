@@ -39,7 +39,7 @@ class ViewPagerActivity2 : AppCompatActivity() {
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
         if (motionLayout != null) {
-            pager.addOnPageChangeListener(motionLayout as androidx.viewpager.widget.ViewPager.OnPageChangeListener)
+            pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
         }
 
         val doShowPaths = intent.getBooleanExtra("showPaths", false)
