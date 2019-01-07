@@ -40,8 +40,12 @@ class DemoActivity : AppCompatActivity() {
             icon?.clipToOutline = true
         }
 
-        val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        (container as? MotionLayout)?.setDebugMode(if (doShowPaths) Consts.SHOW_PATHS else 0)
+        val debugMode = if (intent.getBooleanExtra("showPaths", false)) {
+            MotionLayout.DEBUG_SHOW_PATH
+        } else {
+            MotionLayout.DEBUG_SHOW_NONE
+        }
+        (container as? MotionLayout)?.setDebugMode(debugMode)
     }
 
     fun changeState(v: View?) {
