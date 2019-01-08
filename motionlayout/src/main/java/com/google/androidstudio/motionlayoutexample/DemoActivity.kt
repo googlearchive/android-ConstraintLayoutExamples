@@ -26,6 +26,7 @@ import android.widget.ImageView
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoActivity : AppCompatActivity() {
+
     private lateinit var container: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +40,12 @@ class DemoActivity : AppCompatActivity() {
             icon?.clipToOutline = true
         }
 
-        val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        (container as? MotionLayout)?.setShowPaths(doShowPaths)
+        val debugMode = if (intent.getBooleanExtra("showPaths", false)) {
+            MotionLayout.DEBUG_SHOW_PATH
+        } else {
+            MotionLayout.DEBUG_SHOW_NONE
+        }
+        (container as? MotionLayout)?.setDebugMode(debugMode)
     }
 
     fun changeState(v: View?) {

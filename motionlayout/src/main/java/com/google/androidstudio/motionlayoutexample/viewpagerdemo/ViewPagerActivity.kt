@@ -41,7 +41,11 @@ class ViewPagerActivity : AppCompatActivity() {
             pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
         }
 
-        val doShowPaths = intent.getBooleanExtra("showPaths", false)
-        motionLayout.setShowPaths(doShowPaths)
+        val debugMode = if (intent.getBooleanExtra("showPaths", false)) {
+            MotionLayout.DEBUG_SHOW_PATH
+        } else {
+            MotionLayout.DEBUG_SHOW_NONE
+        }
+        motionLayout.setDebugMode(debugMode)
     }
 }

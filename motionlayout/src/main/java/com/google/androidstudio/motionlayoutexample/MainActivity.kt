@@ -1,8 +1,8 @@
 package com.google.androidstudio.motionlayoutexample
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.CompoundButton
@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         setContentView(R.layout.activity_main)
         viewManager = LinearLayoutManager(this)
         viewAdapter = DemosAdapter(dataset)
-
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
