@@ -33,11 +33,12 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
-                fragment = SecondFragment.newInstance()
-                transaction
-                        .setCustomAnimations(R.animator.show, 0)
-                        .replace(R.id.container, fragment as SecondFragment)
-                        .commitNow()
+                fragment = SecondFragment.newInstance().also {
+                    transaction
+                            .setCustomAnimations(R.animator.show, 0)
+                            .replace(R.id.container, it)
+                            .commitNow()
+                }
             }
         } else {
             // from end to start
