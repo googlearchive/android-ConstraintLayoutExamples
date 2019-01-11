@@ -38,10 +38,11 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
-                fragment = ListFragment.newInstance()
-                transaction
-                        .replace(R.id.container, fragment!!)
-                        .commitNow()
+                fragment = ListFragment.newInstance().also {
+                    transaction
+                            .replace(R.id.container, it)
+                            .commitNow()
+                }
             }
         } else {
             // from end to start
