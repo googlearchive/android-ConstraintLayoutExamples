@@ -17,31 +17,36 @@
 package com.example.android.constraintlayoutexamples;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    private boolean mShowingLayout = false;
+    private String mTag = "activity_main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(mTag);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setContentView(mTag);
     }
 
     public void show(View v) {
-        String tag = (String) v.getTag();
-        int id = getResources().getIdentifier(tag, "layout", getPackageName());
-        setContentView(id);
-        mShowingLayout = true;
+        mTag = (String) v.getTag();
+        setContentView(mTag);
     }
 
     @Override
     public void onBackPressed() {
-        if (mShowingLayout) {
-            setContentView(R.layout.activity_main);
-            mShowingLayout = false;
+        if (!mTag.equals("activity_main")) {
+            mTag = "activity_main";
+            setContentView(mTag);
         } else {
             super.onBackPressed();
         }
@@ -49,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void showConstraintSetExample(View view) {
         startActivity(new Intent(this, ConstraintSetExampleActivity.class));
+    }
+
+    private void setContentView(String tag) {
+        int id = getResources().getIdentifier(tag, "layout", getPackageName());
+        setContentView(id);
     }
 }
