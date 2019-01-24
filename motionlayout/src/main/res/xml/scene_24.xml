@@ -153,11 +153,24 @@
 
             <KeyPosition
                 motion:target="@id/top_image"
-                motion:framePosition="80"
-                motion:curveFit="spline"
-                motion:pathMotionArc="startHorizontal"
-                motion:keyPositionType="deltaRelative"
-                motion:percentX="0.3"
+                motion:framePosition="90"
+                motion:percentWidth="0"
+                motion:percentX="0"
+                motion:curveFit="linear"
+                />
+
+            <KeyPosition
+                motion:target="@id/top_image_container"
+                motion:framePosition="90"
+                motion:percentWidth="0"
+                motion:curveFit="linear"
+                />
+
+            <KeyPosition
+                motion:target="@id/recyclerview_container"
+                motion:framePosition="90"
+                motion:percentWidth="0"
+                motion:curveFit="linear"
                 />
 
             <KeyAttribute
