@@ -25,56 +25,62 @@ import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
 class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
-    override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, progress: Float) {
-        if (progress - lastProgress > 0) {
+
+    private var lastProgress = 0f
+    private var fragment : Fragment? = null
+    private var last : Float = 0f
+
+    override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
+        if (p3 - lastProgress > 0) {
             // from start to end
-            val atEnd = Math.abs(progress - 1f) < 0.1f
+            val atEnd = Math.abs(p3 - 1f) < 0.1f
             if (atEnd && fragment is MainFragment) {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(R.animator.show, 0)
                 fragment = SecondFragment.newInstance().also {
                     transaction
-                            .setCustomAnimations(R.animator.show, 0)
-                            .replace(R.id.container, it)
-                            .commitNow()
+                        .setCustomAnimations(R.animator.show, 0)
+                        .replace(R.id.container, it)
+                        .commitNow()
                 }
             }
         } else {
             // from end to start
-            val atStart = progress < 0.9f
+            val atStart = p3 < 0.9f
             if (atStart && fragment is SecondFragment) {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
-                fragment = MainFragment.newInstance()
-                transaction
-                        .replace(R.id.container, fragment as MainFragment)
+                fragment = MainFragment.newInstance().also {
+                    transaction
+                        .replace(R.id.container, it)
                         .commitNow()
+                }
             }
         }
-        lastProgress = progress
+        lastProgress = p3
+    }
+
+    override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
+    }
+
+    override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
     }
 
     override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
     }
 
-    private var lastProgress = 0f
-
-    private var fragment : Fragment? = null
-    private var last : Float = 0f
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
-            fragment = MainFragment.newInstance()
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, fragment as MainFragment)
+            fragment = MainFragment.newInstance().also {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, it)
                     .commitNow()
+            }
         }
-        //toggle.setOnClickListener(this)
-        //toggleAnimation.setOnClickListener(this)
         motionLayout.setTransitionListener(this)
     }
 
@@ -90,10 +96,11 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
                 MainFragment.newInstance()
-            }
-            transaction
-                    .replace(R.id.container, fragment as Fragment)
+            }.also {
+                transaction
+                    .replace(R.id.container, it)
                     .commitNow()
+            }
         }
     }
 }
