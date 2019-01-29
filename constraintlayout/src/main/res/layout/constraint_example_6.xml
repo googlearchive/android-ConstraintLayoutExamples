@@ -78,8 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="0.42" />
+        app:layout_constraintRight_toLeftOf="@+id/button9" />
 
     <Button
         android:id="@+id/button9"
