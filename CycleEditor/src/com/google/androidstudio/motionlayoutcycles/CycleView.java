@@ -1,69 +1,53 @@
-package com.android;
+/*
+ * Copyright (C) 2019 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.google.androidstudio.motionlayoutcycles;
 
-import static javax.swing.SwingConstants.TRAILING;
-
+import com.google.androidstudio.motionlayoutcycles.CycleSetModel.*;
 import java.awt.BasicStroke;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.LinearGradientPaint;
 import java.awt.Paint;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.Vector;
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.basic.BasicArrowButton;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * A simple graphical interface to KeyCycles
  */
 public class CycleView extends JPanel {
 
+  Cycle myCycle;
   private static final Color COLOR_CLEAR = new Color(100, 150, 250, 0);
   private static final Color COLOR_BLUE = new Color(100, 150, 250, 85);
   private static final Color SELECTED_COLOR = new Color(100, 150, 250);
@@ -122,7 +106,8 @@ public class CycleView extends JPanel {
     addGraph(0, xPoints, yPoints, Color.WHITE, 0);
   }
 
-  public CycleView() {
+  public CycleView(Cycle cycle) {
+    myCycle = cycle;
     p.addElement(mGrid);
     p.addElement(mAxis);
     p.addElement(mAxisVLabel);
@@ -140,7 +125,6 @@ public class CycleView extends JPanel {
     });
 
   }
-
 
   //
   public void addGraph(int n, double[] x, double[] y, Color c, int mode) {
@@ -445,17 +429,19 @@ public class CycleView extends JPanel {
   }
 
   DrawItem drawDot = new DrawItem() {
-    int []lastDotsX = new int[4];
-    int []lastDotsY = new int[lastDotsX.length];
+    int[] lastDotsX = new int[4];
+    int[] lastDotsY = new int[lastDotsX.length];
     Color base = Color.YELLOW;
-    Color []dotsColor = new Color[lastDotsX.length];
+    Color[] dotsColor = new Color[lastDotsX.length];
+
     {
       Color tmp = base;
-      for (int i = dotsColor.length-1; i >= 0 ; i--) {
+      for (int i = dotsColor.length - 1; i >= 0; i--) {
         dotsColor[i] = tmp = tmp.darker();
 
       }
     }
+
     @Override
     public void paint(Graphics2D g, int w, int h) {
       if (Float.isNaN(dot_x)) {
@@ -468,19 +454,19 @@ public class CycleView extends JPanel {
       float y = draw_height
           * (1 - (dot_y - miny) / (maxy - miny))
           + ins_top;
-      int dot_x = (int)x-3;
-      int dot_y = (int)y-3;
+      int dot_x = (int) x - 3;
+      int dot_y = (int) y - 3;
 
       for (int i = 0; i < lastDotsX.length; i++) {
         g.setColor(dotsColor[i]);
         g.fillRoundRect(lastDotsX[i], lastDotsY[i], 7, 7, 6, 6);
         if (i < lastDotsX.length - 1) {
           lastDotsX[i] = lastDotsX[i + 1];
-        lastDotsY[i] = lastDotsY[i + 1];
-      } else {
-        lastDotsX[i] = dot_x;
-        lastDotsY[i] = dot_y;
-      }
+          lastDotsY[i] = lastDotsY[i + 1];
+        } else {
+          lastDotsX[i] = dot_x;
+          lastDotsY[i] = dot_y;
+        }
       }
       g.setColor(base);
 
@@ -622,25 +608,6 @@ public class CycleView extends JPanel {
 
   };
 
-  public static CycleView create(String title) {
-
-    JFrame f = new JFrame(title);
-    f.setBounds(new Rectangle(623, 660));
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JPanel base = new JPanel(new BorderLayout());
-    JPanel ctl = new JPanel();
-    base.add(ctl, BorderLayout.SOUTH);
-    JButton button = new JButton("Save...");
-    CycleView p = new CycleView();
-    button.addActionListener(e -> save(e, p));
-    ctl.add(button);
-    base.add(p);
-    f.setContentPane(base);
-    f.validate();
-    f.setVisible(true);
-    return p;
-  }
-
   public static void save(ActionEvent e, CycleView graph) {
     int w = graph.getWidth();
     int h = graph.getHeight();
@@ -700,7 +667,6 @@ public class CycleView extends JPanel {
       System.arraycopy(mPosition, j, mPosition, j + 1, len - j - 1);
       mPosition[j] = position;
       mPeriod[j] = period;
-
 
     }
 
@@ -817,563 +783,13 @@ public class CycleView extends JPanel {
     selected_graph = n + 3;
   }
 
-  private float getComputedValue(float v) {
+  float getComputedValue(float v) {
+    if (mMonotoneSpline == null) {
+      return 0;
+    }
     double amp = mMonotoneSpline.getPos(v, 0);
     double off = mMonotoneSpline.getPos(v, 1);
     return (float) (mOscillator.getValue(v) * amp + off);
-  }
-
-
-  // ============================ The Model of a collection of  KeyCycles ==========
-  static class Model {
-
-    double[][] values = {
-        {0, 0.2, 0.5, 0.7, 1},
-        {0, 2, 0, 3, 1},
-        {20, 360, 360, 360, 0},
-        {0, 0, 0, 0, 0}
-    };
-    final int POS = 0;
-    final int PERIOD = 1;
-    final int AMP = 2;
-    final int OFFSET = 3;
-    public int selected = 3;
-    ActionListener listener;
-    CycleView mCycleView;
-    public JTextField mKeyCycleNo;
-    private JComboBox<String> mMode;
-    public JTextArea xmlOutput;
-    private int mModeValue;
-    JButton delete, add;
-    public JSlider mPos, mPeriod, mAmp, mOff;
-    Timer timer;
-
-    boolean inCallBack = false;
-    String[] waveShapeName = {
-        "sin", "square", "triangle", "sawtooth", "reverseSawtooth", "cos", "bounce"
-    };
-    int mAttrIndex = 3;
-    private JTextField mTarget;
-
-    public void addActionListener(ActionListener listener) {
-      this.listener = listener;
-    }
-
-    public String[] getStrings() {
-      String[] str = new String[values[POS].length];
-      for (int i = 0; i < str.length; i++) {
-        str[i] = "" + i;
-
-      }
-      return str;
-    }
-
-    public void delete() {
-      double[][] nv = new double[values.length][values[POS].length - 1];
-      for (int i = 0; i < values.length; i++) {
-        int k = 0;
-        for (int j = 0; j < values[i].length; j++) {
-          if (selected != j) {
-            nv[i][k] = values[i][j];
-            k++;
-          }
-        }
-      }
-      values = nv;
-      if (selected == nv[POS].length) {
-        selected--;
-      }
-      update();
-    }
-
-    /**
-     *
-     */
-    public void add() {
-      double[][] nv = new double[values.length][values[POS].length + 1];
-      for (int i = 0; i < values.length; i++) {
-        int k = 0;
-        for (int j = 0; j < values[i].length; j++) {
-          if (selected == j) {
-            nv[i][k] = values[i][j];
-            if (j > 0) {
-              nv[i][k] = (values[i][j] + values[i][j - 1]) / 2;
-            }
-            k++;
-            nv[i][k] = values[i][j];
-            if (j < values[i].length - 1) {
-              nv[i][k] = (values[i][j] + values[i][j + 1]) / 2;
-            }
-            k++;
-            continue;
-          }
-          nv[i][k] = values[i][j];
-          k++;
-        }
-      }
-      values = nv;
-      if (selected == nv[POS].length) {
-        selected--;
-      }
-      update();
-    }
-
-    public void setCycle(CycleView cycleView) {
-      mCycleView = cycleView;
-    }
-
-    public void update() {
-      updateUIelements();
-      mCycleView.setCycle(0, values[POS], values[PERIOD], values[AMP], values[OFFSET], selected,
-          mModeValue);
-      generateXML();
-      mCycleView.repaint();
-    }
-
-    public float getComputedValue(float v) {
-      return mCycleView.getComputedValue(v);
-    }
-
-    public void setDot(float x, float y) {
-      mCycleView.setDot(x, y);
-    }
-
-    /**
-     *
-     */
-    public void setPos() {
-      int v = mPos.getValue();
-      if (inCallBack) {
-        return;
-      }
-
-      int min = v;
-      int max = v;
-      if (selected > 0) {
-        min = 1 + (int) (0.5 + (100 * values[POS][selected - 1]));
-      }
-      if (selected < values[POS].length - 1) {
-        max = ((int) (0.5 + (100 * values[POS][selected + 1]))) - 1;
-      }
-      double pvalue = Math.max(min, Math.min(v, max)) / 100f;
-      values[POS][selected] = pvalue;
-      update();
-    }
-
-    public void setPeriod() {
-      if (inCallBack) {
-        return;
-      }
-      values[PERIOD][selected] = mPeriod.getValue();
-      update();
-    }
-
-    public void setAmp() {
-      if (inCallBack) {
-        return;
-      }
-      int val = mAmp.getValue();
-      if (MainAttribute.mapTo100[mAttrIndex]) {
-        float min = MainAttribute.typicalRange[mAttrIndex][0];
-        float max = MainAttribute.typicalRange[mAttrIndex][1];
-        values[AMP][selected] = val * (max - min) / 100 + min;
-
-      } else {
-        values[AMP][selected] = val;
-      }
-      update();
-    }
-
-    public void setOffset() {
-      if (inCallBack) {
-        return;
-      }
-      if (MainAttribute.mapTo100[mAttrIndex]) {
-        float min = MainAttribute.typicalRange[mAttrIndex][0];
-        float max = MainAttribute.typicalRange[mAttrIndex][1];
-        values[OFFSET][selected] = mOff.getValue() * (max - min) / 100 + min;
-      } else {
-        values[OFFSET][selected] = mOff.getValue();
-      }
-      update();
-    }
-
-    void setMode() {
-      mModeValue = mMode.getSelectedIndex();
-      update();
-    }
-
-    public void setSelected(int selectedIndex) {
-      inCallBack = true;
-      selected = selectedIndex;
-
-      update();
-      inCallBack = false;
-    }
-
-    public void setUIElements(JSlider pos, JSlider period, JSlider amp, JSlider off,
-        JComboBox<String> mode) {
-      mPeriod = period;
-      mOff = off;
-      mAmp = amp;
-      mPos = pos;
-      mMode = mode;
-      mPeriod.setMinimum(0);
-      mPeriod.setMaximum(9);
-
-      mOff.setPaintTicks(true);
-      mPos.setPaintTicks(true);
-      mAmp.setPaintTicks(true);
-      mPeriod.setPaintTicks(true);
-
-      mPeriod.setMajorTickSpacing(1);
-
-      mPos.setMinorTickSpacing(5);
-      mPos.setMajorTickSpacing(10);
-
-      mOff.setMinorTickSpacing(10);
-      mPeriod.setPaintTicks(true);
-      mOff.setPaintLabels(true);
-      mAmp.setPaintLabels(true);
-      mPeriod.setPaintLabels(true);
-      mPos.addChangeListener((e) ->
-          setPos());
-      mPeriod.addChangeListener((e) ->
-          setPeriod());
-      mOff.addChangeListener((e) ->
-          setOffset());
-      mAmp.addChangeListener((e) ->
-          setAmp());
-      mMode.addActionListener((e) ->
-          setMode());
-      updateUIelements();
-
-    }
-
-    void updateUIelements() {
-      inCallBack = true;
-      int max = (int) (0.5 + 100 * ((selected == values[POS].length - 1) ? 1
-          : (values[POS][selected + 1])));
-      int min = (int) (0.5 + 100 * (selected == 0 ? 0 : (values[POS][selected - 1])));
-      boolean middle = (selected > 0) && (selected < values[POS].length - 1);
-      mPos.setEnabled(middle);
-      delete.setEnabled(middle);
-
-      mPos.setMaximum(max - 1);
-      mPos.setMinimum(min + 1);
-      if (MainAttribute.mapTo100[mAttrIndex]) {
-        mAmp.setMinimum(0);
-        mAmp.setMaximum(100);
-        mOff.setMinimum(-100);
-        mOff.setMaximum(100);
-        Hashtable<Integer, JLabel> labelTable =
-            new Hashtable<Integer, JLabel>();
-        labelTable.put(0, new JLabel("" + MainAttribute.typicalRange[mAttrIndex][0]));
-        labelTable.put(50, new JLabel("" +
-            (MainAttribute.typicalRange[mAttrIndex][0] + MainAttribute.typicalRange[mAttrIndex][1])
-                / 2));
-        labelTable.put(100, new JLabel("" + MainAttribute.typicalRange[mAttrIndex][1]));
-        mOff.setLabelTable(labelTable);
-        mAmp.setLabelTable(labelTable);
-      } else {
-        mAmp.setMinimum((int) MainAttribute.typicalRange[mAttrIndex][0]);
-        mAmp.setMaximum((int) MainAttribute.typicalRange[mAttrIndex][1]);
-        mOff.setMinimum((int) MainAttribute.typicalRange[mAttrIndex][0]);
-        mOff.setMaximum((int) MainAttribute.typicalRange[mAttrIndex][1]);
-        mOff.setLabelTable(null);
-        mAmp.setLabelTable(null);
-
-      }
-
-      if (MainAttribute.mapTo100[mAttrIndex]) {
-        mAmp.setPaintTicks(true);
-        mAmp.setPaintLabels(true);
-        mAmp.setMinorTickSpacing(10);
-        mAmp.setMajorTickSpacing(100);
-
-        mOff.setMinorTickSpacing(10);
-        mOff.setMajorTickSpacing(100);
-        mAmp.repaint();
-
-      } else {
-        int maxr = (int) (MainAttribute.typicalRange[mAttrIndex][1]);
-        mAmp.setPaintTicks(true);
-        mAmp.setPaintLabels(true);
-        mAmp.setMinorTickSpacing(90);
-        mAmp.setMajorTickSpacing(180);
-        mAmp.repaint();
-        mOff.setMinorTickSpacing(90);
-        mOff.setMajorTickSpacing(180);
-        mAmp.setPaintTicks(true);
-        mAmp.setPaintLabels(true);
-
-      }
-      mPos.setValue((int) (values[POS][selected] * 100));
-      mPeriod.setValue((int) (values[PERIOD][selected]));
-      if (MainAttribute.mapTo100[mAttrIndex]) {
-        float range_min = MainAttribute.typicalRange[mAttrIndex][0];
-        float range_max = MainAttribute.typicalRange[mAttrIndex][1];
-        mAmp.setValue(
-            (int) (0.5 + 100 * (values[AMP][selected] / (range_max - range_min) + range_min)));
-        mOff.setValue(
-            (int) (0.5 + 100 * (values[OFFSET][selected] / (range_max - range_min) + range_min)));
-
-      } else {
-        mAmp.setValue((int) (0.5 + values[AMP][selected]));
-        mOff.setValue((int) (0.5 + values[OFFSET][selected]));
-      }
-      inCallBack = false;
-
-    }
-
-    public void changeSelection(int delta) {
-      int length = values[POS].length;
-      selected = (delta + selected + length) % length;
-      mKeyCycleNo.setText("" + selected);
-
-      update();
-    }
-
-    class ParseResults {
-      double[][] values = new double[4][0];
-      final int POS = 0;
-      final int PERIOD = 1;
-      final int AMP = 2;
-      final int OFFSET = 3;
-
-      int current = -1;
-      void add(){
-
-        for (int i = 0; i < values.length; i++) {
-            values[i] = Arrays.copyOf(values[i],values[i].length+1);
-        }
-        current = values[0].length-1;
-      }
-      void setFramePosition(double v) {
-        values[POS][current] = v;
-      }
-      void setWavePeriod(double v) {
-        values[PERIOD][current] = v;
-      }
-      void setWaveValue(double v) {
-        values[AMP][current] = v;
-      }
-      void setWaveOffset(double v) {
-        values[OFFSET][current] = v;
-      }
-
-      String target;
-      int shape;
-      Prop valueType;
-    }
-    public static String trimDp(String v) {
-      if (v.lastIndexOf("dp") != -1) {
-        return v.substring(0,v.lastIndexOf("dp"));
-      }
-      return v;
-    }
-    public void parseXML() {
-      try {
-      String str = xmlOutput.getText();
-      InputStream inputStream = new ByteArrayInputStream(str.getBytes(Charset.forName("UTF-8")));
-      SAXParserFactory factory = SAXParserFactory.newInstance();
-      SAXParser saxParser = factory.newSAXParser();
-        ParseResults results = new ParseResults();
-      saxParser.parse(inputStream,new DefaultHandler() {
-        public void startElement (String uri, String localName,
-            String qName, Attributes attributes)
-            throws SAXException {
-          if ("KeyCycle".equals(qName)) {
-            results.add();
-            for (int i = 0; i < attributes.getLength(); i++) {
-              System.out.println(attributes.getQName(i) + "  = " + attributes.getValue(i));
-              switch (attributes.getQName(i)) {
-                case "motion:framePosition":
-                  results.setFramePosition(Integer.parseInt(attributes.getValue(i))/100f);
-                  break;
-                case "motion:target":
-                  results.target =  attributes.getValue(i).substring(5);
-                  break;
-                case "motion:wavePeriod":
-                  results.setWavePeriod(Float.parseFloat(attributes.getValue(i)));
-                  break;
-                case "motion:waveOffset":
-                  results.setWaveOffset(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case "motion:waveShape":
-                  String shape = attributes.getValue(i);
-                  for (int j = 0; j < waveShapeName.length; j++) {
-                    if (waveShapeName[j].equals(shape)){
-                      results.shape = j;
-                    }
-                  }
-                  break;
-                case   "motion:transitionPathRotate":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:alpha":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case "android:elevation":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case   "android:rotation":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:rotationX":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:rotationY":
-                  results.valueType = Prop.PATH_ROTATE;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:scaleX":
-                  results.valueType = Prop.SCALE_X;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:scaleY":
-                  results.valueType = Prop.SCALE_Y;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case "android:translationX":
-                  results.valueType = Prop.TRANSLATION_X;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:translationY":
-                  results.valueType = Prop.TRANSLATION_Y;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case  "android:translationZ":
-                  results.valueType = Prop.TRANSLATION_Z;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-                case    "motion:progress":
-                  results.valueType = Prop.PROGRESS;
-                  results.setWaveValue(Float.parseFloat(trimDp(attributes.getValue(i))));
-                  break;
-
-
-              }
-
-            }
-          }
-
-
-
-        }
-
-        public void endElement (String uri, String localName, String qName)
-            throws SAXException  {
-
-        }
-      });
-        values = results.values;
-        selected = values[POS].length/2;
-        mMode.setSelectedIndex(results.shape);
-        mTarget.setText(results.target);
-        mAttrIndex = results.valueType.ordinal();
-        update();
-      } catch (ParserConfigurationException e) {
-        e.printStackTrace();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-
-    }
-    public void generateXML() {
-      String str = "<KeyFrameSet>\n\n";
-      int start_caret = 0;
-      int end_caret = 0;
-      String target = mTarget.getText();
-      for (int i = 0; i < values[POS].length; i++) {
-        double pos = values[POS][i];
-        double per = values[PERIOD][i];
-        double amp = values[AMP][i];
-        double off = values[OFFSET][i];
-        String xmlstr = "<KeyCycle \n";
-        xmlstr += "        motion:framePosition=\"" + (int) (0.5 + pos * 100) + "\"\n";
-        xmlstr += "        motion:target=\"@+id/" + target + "\"\n";
-        xmlstr += "        motion:wavePeriod=\"" + (int) (per) + "\"\n";
-        xmlstr += "        motion:waveOffset=\"" + MainAttribute.process(off, mAttrIndex) + "\"\n";
-        xmlstr += "        motion:waveShape=\"" + waveShapeName[mMode.getSelectedIndex()] + "\"\n";
-        xmlstr += "        " + MainAttribute.Names[mAttrIndex] + "=\"" + MainAttribute
-            .process(amp, mAttrIndex) + "\"/>\n\n";
-        if (selected == i) {
-          start_caret = str.length();
-        }
-        str += xmlstr;
-        if (selected == i) {
-          end_caret = str.length();
-        }
-      }
-      str += "</KeyFrameSet>\n";
-      xmlOutput.setText(str);
-
-      xmlOutput.setCaretPosition(start_caret);
-
-      int start = start_caret;
-      int end = end_caret;
-
-      SwingUtilities.invokeLater(() -> {
-        xmlOutput.setCaretPosition(end);
-      });
-      if (timer != null) {
-        timer.stop();
-      }
-      timer = new Timer(1000, (e) -> {
-        xmlOutput.requestFocus();
-        xmlOutput.select(start, end);
-        timer = null;
-      });
-      timer.setRepeats(false);
-      timer.start();
-
-    }
-
-    public void setAttr(int selectedIndex) {
-      int old = mAttrIndex;
-
-      mAttrIndex = selectedIndex;
-      float old_min = MainAttribute.typicalRange[old][0];
-      float old_max = MainAttribute.typicalRange[old][1];
-      float new_min = MainAttribute.typicalRange[mAttrIndex][0];
-      float new_max = MainAttribute.typicalRange[mAttrIndex][1];
-      for (int i = 0; i < values[AMP].length; i++) {
-        double value = values[AMP][i];
-        values[AMP][i] =
-            ((new_max - new_min) * ((value - old_min) / (old_max - old_min))) + new_min;
-      }
-
-      update();
-
-    }
-
-    public void selectClosest(Point2D p) {
-      double min = Double.MAX_VALUE;
-      int mini = -1;
-      for (int i = 0; i < values[POS].length; i++) {
-        double dist = p.distance(values[POS][i], values[OFFSET][i]);
-        if (min > dist) {
-          mini = i;
-          min = dist;
-        }
-      }
-      if (mini != -1) {
-        selected = mini;
-        mKeyCycleNo.setText("" + selected);
-        update();
-      }
-    }
-
-    public void setTarget(JTextField target) {
-      mTarget = target;
-    }
-
   }
 
   enum Prop {

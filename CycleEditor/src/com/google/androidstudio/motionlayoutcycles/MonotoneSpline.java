@@ -1,4 +1,20 @@
-package com.android;
+/*
+ * Copyright (C) 2019 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.google.androidstudio.motionlayoutcycles;
 
 /**
  * This performs a spline interpolation in multiple dimensions
@@ -224,34 +240,33 @@ public class MonotoneSpline extends Interpolator {
         double y = mY[i][1];
 
       }
-      if (t >=   mT[i + 1]) {
+      if (t >= mT[i + 1]) {
         double h = mT[i + 1] - mT[i];
         double x = 1;
         double x1 = mY[i][0];
         double x2 = mY[i + 1][0];
         double tx1 = mTangent[i][0];
         double tx2 = mTangent[i + 1][0];
-        double ix =   length(h, x, x1, x2, tx1, tx2);
+        double ix = length(h, x, x1, x2, tx1, tx2);
         double y1 = mY[i][1];
         double y2 = mY[i + 1][1];
         double ty1 = mTangent[i][1];
         double ty2 = mTangent[i + 1][1];
-        double iy =   length(h, x, y1, y2, ty1, ty2);
+        double iy = length(h, x, y1, y2, ty1, ty2);
 
-      } else
-      if (t < mT[i + 1]) {
+      } else if (t < mT[i + 1]) {
         double h = mT[i + 1] - mT[i];
         double x = (t - mT[i]) / h;
-           double x1 = mY[i][0];
-          double x2 = mY[i + 1][0];
-          double tx1 = mTangent[i][0];
-          double tx2 = mTangent[i + 1][0];
-          double ix =   length(h, x, x1, x2, tx1, tx2);
+        double x1 = mY[i][0];
+        double x2 = mY[i + 1][0];
+        double tx1 = mTangent[i][0];
+        double tx2 = mTangent[i + 1][0];
+        double ix = length(h, x, x1, x2, tx1, tx2);
         double y1 = mY[i][1];
         double y2 = mY[i + 1][1];
         double ty1 = mTangent[i][1];
         double ty2 = mTangent[i + 1][1];
-        double iy =   length(h, x, y1, y2, ty1, ty2);
+        double iy = length(h, x, y1, y2, ty1, ty2);
 
       }
     }
@@ -262,7 +277,6 @@ public class MonotoneSpline extends Interpolator {
   double[] getTimePoints() {
     return mT;
   }
-
 
   /**
    * Cubic Hermite spline
@@ -277,7 +291,6 @@ public class MonotoneSpline extends Interpolator {
             + (h * t1 * x2) / 2;
 
   }
-
 
   /**
    * Cubic Hermite spline
