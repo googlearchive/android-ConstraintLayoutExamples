@@ -16,24 +16,10 @@
 
 package com.google.androidstudio.motionlayoutcycles;
 
-import com.google.androidstudio.motionlayoutcycles.CycleSetModel.*;
-import com.google.androidstudio.motionlayoutcycles.CycleView.Prop;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.Stroke;
-import java.awt.geom.AffineTransform;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.Timer;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 /**
  * This panel simulates and Android view parameter for controlling a button
@@ -151,55 +137,55 @@ class AnimationPanel extends JPanel {
     Color text = Color.BLACK;
     if (myAttributeMask != 0) {
 
-      if ((myAttributeMask & (1 << Prop.PATH_ROTATE.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.PATH_ROTATE.ordinal())) != 0) {
         at = new AffineTransform();
-        at.rotate(Math.toRadians(myCycleModel.getValue(Prop.PATH_ROTATE, myEasedPercent)), buttonCX,
+        at.rotate(Math.toRadians(myCycleModel.getValue(CycleView.Prop.PATH_ROTATE, myEasedPercent)), buttonCX,
             buttonCY);
         g2d.transform(at);
       }
-      if ((myAttributeMask & (1 << Prop.ALPHA.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.ALPHA.ordinal())) != 0) {
         int alpha = Math
-            .max(0, Math.min(255, (int) (myCycleModel.getValue(Prop.ALPHA, myEasedPercent) * 255)));
+            .max(0, Math.min(255, (int) (myCycleModel.getValue(CycleView.Prop.ALPHA, myEasedPercent) * 255)));
         background = new Color(background.getRed(), background.getGreen(), background.getBlue(),
             alpha);
         border = new Color(border.getRed(), border.getGreen(), border.getBlue(), alpha);
         text = new Color(text.getRed(), text.getGreen(), text.getBlue(), alpha);
       }
 
-      if ((myAttributeMask & (1 << Prop.SCALE_X.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.SCALE_X.ordinal())) != 0) {
         at = new AffineTransform();
         at.translate(w / 2.0, buttonCY);
-        at.scale(myCycleModel.getValue(Prop.SCALE_X, myEasedPercent), 1);
+        at.scale(myCycleModel.getValue(CycleView.Prop.SCALE_X, myEasedPercent), 1);
         at.translate(-w / 2.0, -buttonCY);
 
         g2d.transform(at);
       }
 
-      if ((myAttributeMask & (1 << Prop.SCALE_Y.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.SCALE_Y.ordinal())) != 0) {
 
         at = new AffineTransform();
         at.translate(buttonCX, buttonCY);
-        at.scale(1, myCycleModel.getValue(Prop.SCALE_Y, myEasedPercent));
+        at.scale(1, myCycleModel.getValue(CycleView.Prop.SCALE_Y, myEasedPercent));
         at.translate(-buttonCX, -buttonCY);
         g2d.transform(at);
       }
 
-      if ((myAttributeMask & (1 << Prop.TRANSLATION_X.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.TRANSLATION_X.ordinal())) != 0) {
 
         at = new AffineTransform();
-        at.translate(myCycleModel.getValue(Prop.TRANSLATION_X, myEasedPercent), 0);
+        at.translate(myCycleModel.getValue(CycleView.Prop.TRANSLATION_X, myEasedPercent), 0);
         g2d.transform(at);
       }
 
-      if ((myAttributeMask & (1 << Prop.TRANSLATION_Y.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.TRANSLATION_Y.ordinal())) != 0) {
 
         at = new AffineTransform();
-        at.translate(0, myCycleModel.getValue(Prop.TRANSLATION_Y, myEasedPercent));
+        at.translate(0, myCycleModel.getValue(CycleView.Prop.TRANSLATION_Y, myEasedPercent));
         g2d.transform(at);
       }
-      if ((myAttributeMask & (1 << Prop.ROTATION.ordinal())) != 0) {
+      if ((myAttributeMask & (1 << CycleView.Prop.ROTATION.ordinal())) != 0) {
         at = new AffineTransform();
-        at.rotate(Math.toRadians(myCycleModel.getValue(Prop.ROTATION, myEasedPercent)), buttonCX,
+        at.rotate(Math.toRadians(myCycleModel.getValue(CycleView.Prop.ROTATION, myEasedPercent)), buttonCX,
             buttonCY);
         g2d.transform(at);
       }
