@@ -15,7 +15,6 @@
  */
 package com.google.androidstudio.motionlayoutcycles;
 
-import com.google.androidstudio.motionlayoutcycles.CycleSetModel.*;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -47,7 +46,7 @@ import javax.swing.JPanel;
  */
 public class CycleView extends JPanel {
 
-  Cycle myCycle;
+  CycleSetModel.Cycle myCycle;
   private static final Color COLOR_CLEAR = new Color(100, 150, 250, 0);
   private static final Color COLOR_BLUE = new Color(100, 150, 250, 85);
   private static final Color SELECTED_COLOR = new Color(100, 150, 250);
@@ -106,7 +105,7 @@ public class CycleView extends JPanel {
     addGraph(0, xPoints, yPoints, Color.WHITE, 0);
   }
 
-  public CycleView(Cycle cycle) {
+  public CycleView(CycleSetModel.Cycle cycle) {
     myCycle = cycle;
     p.addElement(mGrid);
     p.addElement(mAxis);
