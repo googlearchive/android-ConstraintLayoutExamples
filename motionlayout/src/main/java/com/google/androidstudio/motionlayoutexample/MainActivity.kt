@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             DemosAdapter.Demo("Fragment Transition Example (1/3)", "Example showing transitioning fragments within MotionLayout", FragmentExampleActivity::class.java),
             DemosAdapter.Demo("Fragment Transition Example (2/3)", "Example showing transitioning fragments within MotionLayout", FragmentExample2Activity::class.java),
             DemosAdapter.Demo("Fragment Transition Example (3/3)", "Example showing transitioning fragments within MotionLayout", FragmentExample2Activity::class.java),
-            DemosAdapter.Demo("YouTube like motion Example", "Example showing a transition like YouTube", YouTubeDemoActivity::class.java)
+            DemosAdapter.Demo("YouTube like motion Example", "Example showing a transition like YouTube", YouTubeDemoActivity::class.java),
+            DemosAdapter.Demo("Example using KeyTrigger", "Example that calls a method using KeyTrigger", R.layout.motion_25_keytrigger)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
