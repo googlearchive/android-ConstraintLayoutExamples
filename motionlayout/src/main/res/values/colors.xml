@@ -20,4 +20,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="tintImage">#41000000</color>
     <color name="text">#ffffff</color>
+    <color name="azure">#49A9DF</color>
+    <color name="cerulean_blue">#137AE2</color>
+    <color name="brown">#643A07</color>
 </resources>
