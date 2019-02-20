@@ -18,7 +18,7 @@ of the layout editor.
 MotionLayout samples overview
 -----------------------------
 
-|  Title  |  GIF  | Layout XML | MotionScene XML | 
+|  Title  |  GIF  | Layout | MotionScene | 
 | :----: | :----: | :----: | :----: |
 |  Basic Example (1/2) | <img src="art/motionlayout-1-basic-example.gif" height="360" width="180" > | [Layout](motionlayout/src/main/res/layout/motion_01_basic.xml) | [MotionScene](motionlayout/src/main/res/xml/scene_01.xml) | 
 |  Basic Example (2/2) | <img src="art/motionlayout-2-basic-example.gif" height="360" width="180" > | [Layout](motionlayout/src/main/res/layout/motion_02_basic.xml) | [MotionScene](motionlayout/src/main/res/xml/scene_02.xml) | 
