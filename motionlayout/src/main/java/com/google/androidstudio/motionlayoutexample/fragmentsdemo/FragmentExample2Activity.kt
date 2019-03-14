@@ -24,12 +24,12 @@ import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
-class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
+class FragmentExample2Activity: AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
 
     // TODO: Extract the common code with FragmentExampleActivity
     private var lastProgress = 0f
-    private var fragment : Fragment? = null
-    private var last : Float = 0f
+    private var fragment: Fragment? = null
+    private var last: Float = 0f
 
     override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
         if (p3 - lastProgress > 0) {
@@ -41,8 +41,8 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                         .setCustomAnimations(R.animator.show, 0)
                 fragment = ListFragment.newInstance().also {
                     transaction
-                        .replace(R.id.container, it)
-                        .commitNow()
+                            .replace(R.id.container, it)
+                            .commitNow()
                 }
             }
         } else {
@@ -54,8 +54,8 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                         .setCustomAnimations(0, R.animator.hide)
                 fragment = MainFragment.newInstance().also {
                     transaction
-                        .replace(R.id.container, it)
-                        .commitNow()
+                            .replace(R.id.container, it)
+                            .commitNow()
                 }
             }
         }
@@ -78,8 +78,8 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
 
             fragment = MainFragment.newInstance().also {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, it)
-                    .commitNow()
+                        .replace(R.id.container, it)
+                        .commitNow()
             }
         }
         //toggle.setOnClickListener(this)
@@ -99,14 +99,12 @@ class FragmentExample2Activity : AppCompatActivity(), View.OnClickListener, Moti
                 transaction
                         .setCustomAnimations(0, R.animator.hide)
                 MainFragment.newInstance()
-            }
-            transaction
-                    .replace(R.id.container, fragment as Fragment)
             }.also {
                 transaction
-                    .replace(R.id.container, it)
-                    .commitNow()
+                        .replace(R.id.container, it)
+                        .commitNow()
             }
         }
     }
+
 }
