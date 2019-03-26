@@ -17,13 +17,13 @@
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
 import android.graphics.Rect
-import android.support.constraint.motion.MotionLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.google.androidstudio.motionlayoutexample.R
 
 class CustomAdapter(private val userList: ArrayList<User>): RecyclerView.Adapter<CustomAdapter.ViewHolder>() {

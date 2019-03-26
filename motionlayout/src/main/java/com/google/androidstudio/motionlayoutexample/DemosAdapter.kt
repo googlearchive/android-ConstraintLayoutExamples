@@ -16,11 +16,11 @@
 
 package com.google.androidstudio.motionlayoutexample
 
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
 
 class DemosAdapter(private val dataset: Array<DemosAdapter.Demo>) :
         RecyclerView.Adapter<DemosAdapter.ViewHolder>() {

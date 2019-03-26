@@ -17,9 +17,9 @@
 package com.google.androidstudio.motionlayoutexample.utils
 
 import android.content.Context
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.viewpager.widget.ViewPager
 
 class ViewpagerHeader @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

@@ -18,11 +18,11 @@ package com.google.androidstudio.motionlayoutexample
 
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.constraint.motion.MotionLayout
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoActivity : AppCompatActivity() {

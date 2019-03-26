@@ -17,10 +17,10 @@
 package com.google.androidstudio.motionlayoutexample.youtubedemo
 
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.androidstudio.motionlayoutexample.R
 
 class YouTubeDemoActivity : AppCompatActivity() {

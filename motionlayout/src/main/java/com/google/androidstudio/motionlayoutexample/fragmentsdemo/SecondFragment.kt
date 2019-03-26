@@ -17,12 +17,12 @@
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 
 class SecondFragment : Fragment() {

@@ -17,10 +17,10 @@
 package com.google.androidstudio.motionlayoutexample.utils
 
 import android.content.Context
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.widget.DrawerLayout
 import android.util.AttributeSet
 import android.view.View
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.drawerlayout.widget.DrawerLayout
 
 class DrawerContent @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

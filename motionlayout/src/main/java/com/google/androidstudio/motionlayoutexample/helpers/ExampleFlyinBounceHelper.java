@@ -18,11 +18,12 @@ package com.google.androidstudio.motionlayoutexample.helpers;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.support.constraint.ConstraintHelper;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
+
+import androidx.constraintlayout.widget.ConstraintHelper;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ExampleFlyinBounceHelper extends ConstraintHelper {
     protected ConstraintLayout mContainer;

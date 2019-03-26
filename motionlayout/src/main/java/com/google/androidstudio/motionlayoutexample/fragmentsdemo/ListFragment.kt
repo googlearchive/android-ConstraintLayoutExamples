@@ -17,14 +17,13 @@
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.androidstudio.motionlayoutexample.R
 
 class ListFragment : Fragment() {
@@ -45,7 +44,7 @@ class ListFragment : Fragment() {
         recyclerView = view.findViewById(R.id.list)
 
         recyclerView.layoutManager = LinearLayoutManager(
-                context, LinearLayout.VERTICAL, false)
+                context, RecyclerView.VERTICAL, false)
         val users = ArrayList<User>()
         users.add(User("Paul", "Mr"))
         users.add(User("Jane", "Miss"))

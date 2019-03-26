@@ -17,9 +17,9 @@
 package com.google.androidstudio.motionlayoutexample.viewpagerdemo
 
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.viewpager.widget.ViewPager
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.motion_16_viewpager.*
 

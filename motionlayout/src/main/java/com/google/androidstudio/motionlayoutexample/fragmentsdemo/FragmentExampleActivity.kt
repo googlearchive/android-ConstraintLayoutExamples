@@ -16,11 +16,11 @@
 
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.motion.MotionLayout
-import android.support.v4.app.Fragment
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
 
