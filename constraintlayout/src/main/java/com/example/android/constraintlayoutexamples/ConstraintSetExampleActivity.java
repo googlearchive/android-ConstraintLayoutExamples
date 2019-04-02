@@ -17,11 +17,12 @@
 package com.example.android.constraintlayoutexamples;
 
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
-import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionManager;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 /**
  * An example activity that show cases the use of {@link ConstraintSet}.
