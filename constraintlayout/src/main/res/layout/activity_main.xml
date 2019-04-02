@@ -18,7 +18,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.constraintlayoutexamples.MainActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -138,5 +138,5 @@
             app:layout_constraintTop_toBottomOf="@+id/button2"
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintRight_creator="1" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
