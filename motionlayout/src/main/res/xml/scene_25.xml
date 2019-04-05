@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 motion:layout_constraintTop_toTopOf="parent"
-                motion:motionProgress="1" />
+                motion:progress="1" />
 
             <Constraint
                 android:id="@id/scrollable"
