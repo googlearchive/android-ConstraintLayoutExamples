@@ -124,7 +124,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
 
         <OnSwipe
             motion:touchAnchorId="@+id/imageView8"
@@ -134,12 +134,12 @@
             <KeyAttribute
                 android:rotation="0"
                 motion:framePosition="1"
-                motion:target="@id/imageView9" />
+                motion:motionTarget="@id/imageView9" />
             <KeyPosition
                 motion:framePosition="27"
                 motion:percentX="-0.2585034"
                 motion:percentY="0.50630915"
-                motion:target="@id/imageView9"
+                motion:motionTarget="@id/imageView9"
                 motion:keyPositionType="deltaRelative" />
         </KeyFrameSet>
     </Transition>

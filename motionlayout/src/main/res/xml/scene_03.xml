@@ -20,7 +20,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
         <OnSwipe
             motion:dragDirection="dragRight"
             motion:touchAnchorId="@id/button"

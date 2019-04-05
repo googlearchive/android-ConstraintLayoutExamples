@@ -21,7 +21,7 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="250"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
 
         <OnSwipe
             motion:touchAnchorId="@+id/motionLayout"
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 motion:layout_constraintTop_toTopOf="parent"
-                motion:progress="1"/>
+                motion:motionProgress="1"/>
 
             <Constraint
                 android:id="@id/scrollable"

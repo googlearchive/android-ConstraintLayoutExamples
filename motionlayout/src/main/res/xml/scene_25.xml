@@ -20,7 +20,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="250"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
 
         <OnSwipe
             motion:touchAnchorId="@+id/motionLayout"
@@ -35,7 +35,7 @@
             <KeyTrigger
                 motion:framePosition="10"
                 motion:onPositiveCross="show"
-                motion:target="@id/fab"/>
+                motion:motionTarget="@id/fab"/>
 
             <!--
             Calls FloatingActionButton.hide() when frame position is being decreased and
@@ -44,7 +44,7 @@
             <KeyTrigger
                 motion:framePosition="20"
                 motion:onNegativeCross="hide"
-                motion:target="@id/fab"/>
+                motion:motionTarget="@id/fab"/>
         </KeyFrameSet>
 
         <ConstraintSet android:id="@+id/start">
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 motion:layout_constraintTop_toTopOf="parent"
-                motion:progress="1" />
+                motion:motionProgress="1" />
 
             <Constraint
                 android:id="@id/scrollable"
