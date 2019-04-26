@@ -21,7 +21,7 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
         <OnSwipe
             motion:touchAnchorId="@+id/button"
             motion:touchAnchorSide="right"
@@ -65,12 +65,12 @@
                 android:scaleY="2"
                 android:rotation="-45"
                 motion:framePosition="50"
-                motion:target="@id/button" />
+                motion:motionTarget="@id/button" />
             <KeyPosition
                 motion:keyPositionType="pathRelative"
                 motion:percentY="-0.3"
                 motion:framePosition="50"
-                motion:target="@id/button"/>
+                motion:motionTarget="@id/button"/>
         </KeyFrameSet>
     </Transition>
 

@@ -20,7 +20,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
 
         <OnSwipe
             motion:touchAnchorId="@+id/top_image_container"
@@ -152,7 +152,7 @@
         <KeyFrameSet>
 
             <KeyPosition
-                motion:target="@id/top_image"
+                motion:motionTarget="@id/top_image"
                 motion:framePosition="90"
                 motion:percentWidth="0"
                 motion:percentX="0"
@@ -160,14 +160,14 @@
                 />
 
             <KeyPosition
-                motion:target="@id/top_image_container"
+                motion:motionTarget="@id/top_image_container"
                 motion:framePosition="90"
                 motion:percentWidth="0"
                 motion:curveFit="linear"
                 />
 
             <KeyPosition
-                motion:target="@id/recyclerview_container"
+                motion:motionTarget="@id/recyclerview_container"
                 motion:framePosition="90"
                 motion:percentWidth="0"
                 motion:curveFit="linear"
@@ -176,17 +176,17 @@
             <KeyAttribute
                 android:alpha="0"
                 motion:framePosition="75"
-                motion:target="@id/recyclerview_front" />
+                motion:motionTarget="@id/recyclerview_front" />
 
             <KeyAttribute
                 android:alpha="0.10"
                 motion:framePosition="90"
-                motion:target="@id/image_clear" />
+                motion:motionTarget="@id/image_clear" />
 
             <KeyAttribute
                 android:alpha="0.10"
                 motion:framePosition="90"
-                motion:target="@id/image_play" />
+                motion:motionTarget="@id/image_play" />
         </KeyFrameSet>
     </Transition>
 

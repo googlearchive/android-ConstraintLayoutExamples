@@ -21,7 +21,7 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
-        motion:interpolator="linear">
+        motion:motionInterpolator="linear">
         <OnSwipe
             motion:touchAnchorId="@+id/button"
             motion:touchAnchorSide="right"
@@ -63,21 +63,21 @@
             <KeyCycle
                 android:translationY="50dp"
                 motion:framePosition="100"
-                motion:target="@id/button"
+                motion:motionTarget="@id/button"
                 motion:waveOffset="0"
                 motion:wavePeriod="0"
                 motion:waveShape="sin" />
             <KeyCycle
                 android:translationY="50dp"
                 motion:framePosition="50"
-                motion:target="@id/button"
+                motion:motionTarget="@id/button"
                 motion:waveOffset="0"
                 motion:wavePeriod="1"
                 motion:waveShape="sin" />
             <KeyCycle
                 android:translationY="50dp"
                 motion:framePosition="0"
-                motion:target="@id/button"
+                motion:motionTarget="@id/button"
                 motion:waveOffset="0"
                 motion:wavePeriod="0"
                 motion:waveShape="sin" />
