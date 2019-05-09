@@ -23,6 +23,7 @@
         <OnSwipe
             motion:dragDirection="dragRight"
             motion:touchAnchorId="@id/button"
+            motion:autoComplete="false"
             motion:touchAnchorSide="right" />
     </Transition>
 
