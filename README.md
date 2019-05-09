@@ -7,7 +7,7 @@ This repository contains a list of layouts that showcases the various features a
 Pre-requisites
 --------------
 - Android Studio 3.3+
-- Constaint Layout library 2.0.0-alpha3+
+- Constraint Layout library 2.0.0-alpha5+
 
 Getting Started
 ---------------
