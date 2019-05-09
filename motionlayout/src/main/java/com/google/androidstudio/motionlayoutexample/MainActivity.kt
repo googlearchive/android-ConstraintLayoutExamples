@@ -20,8 +20,9 @@ class MainActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     private var doShowPaths = false
 
     private val dataset: Array<DemosAdapter.Demo> = arrayOf(
-            DemosAdapter.Demo("Basic Example (1/2)", "Basic motion example using referenced ConstraintLayout files", R.layout.motion_01_basic),
-            DemosAdapter.Demo("Basic Example (2/2)", "Basic motion example using ConstraintSets defined in the MotionScene file", R.layout.motion_02_basic),
+            DemosAdapter.Demo("Basic Example (1/3)", "Basic motion example using referenced ConstraintLayout files", R.layout.motion_01_basic),
+            DemosAdapter.Demo("Basic Example (2/3)", "Basic motion example using ConstraintSets defined in the MotionScene file", R.layout.motion_02_basic),
+            DemosAdapter.Demo("Basic Example (3/3)", "Basic motion example same as 2, but autoComplete is set to false in onSwipe", R.layout.motion_02_basic_autocomplete_false),
             DemosAdapter.Demo("Custom Attribute", "Show color interpolation (custom attribute)", R.layout.motion_03_custom_attribute),
             DemosAdapter.Demo("ImageFilterView (1/2)", "Show image cross-fade (using ML's ImageFilterView + custom attribute)", R.layout.motion_04_imagefilter),
             DemosAdapter.Demo("ImageFilterView (2/2)", "Show image saturation transition (using ML's ImageFilterView + custom attribute)", R.layout.motion_05_imagefilter),
