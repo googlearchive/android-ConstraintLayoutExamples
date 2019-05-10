@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.motion.widget.MotionScene
 import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
 import kotlinx.android.synthetic.main.main_activity.*
@@ -69,6 +70,10 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
     }
 
     override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
+    }
+
+    override fun allowsTransition(p0: MotionScene.Transition?): Boolean {
+        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
