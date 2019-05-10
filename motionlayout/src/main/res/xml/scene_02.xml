@@ -29,9 +29,9 @@
     <ConstraintSet android:id="@+id/start">
         <Constraint android:id="@id/button">
             <Layout
-                motion:layout_width="64dp"
-                motion:layout_height="64dp"
-                motion:layout_marginStart="8dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="8dp"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent" />
@@ -44,9 +44,9 @@
 
         <Constraint android:id="@id/button">
             <Layout
-                motion:layout_width="64dp"
-                motion:layout_height="64dp"
-                motion:layout_marginEnd="8dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="8dp"
                 motion:layout_constraintEnd_toEndOf="parent" />
         </Constraint>
     </ConstraintSet>
