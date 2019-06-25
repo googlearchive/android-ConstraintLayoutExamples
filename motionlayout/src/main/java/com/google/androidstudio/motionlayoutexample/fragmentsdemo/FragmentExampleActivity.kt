@@ -17,15 +17,13 @@
 package com.google.androidstudio.motionlayoutexample.fragmentsdemo
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.constraintlayout.motion.widget.MotionScene
 import androidx.fragment.app.Fragment
 import com.google.androidstudio.motionlayoutexample.R
-import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.main_activity.motionLayout
 
-class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, MotionLayout.TransitionListener {
+class FragmentExampleActivity : AppCompatActivity(), MotionLayout.TransitionListener {
 
     private var lastProgress = 0f
     private var fragment : Fragment? = null
@@ -72,10 +70,6 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
     override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
     }
 
-    override fun allowsTransition(p0: MotionScene.Transition?): Boolean {
-        return true
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -87,25 +81,5 @@ class FragmentExampleActivity : AppCompatActivity(), View.OnClickListener, Motio
             }
         }
         motionLayout.setTransitionListener(this)
-    }
-
-    override fun onClick(view: View?) {
-        if (view?.id == R.id.toggle) {
-            val transaction = supportFragmentManager.beginTransaction()
-            fragment = if (fragment == null || fragment is MainFragment) {
-                last = 1f
-                transaction
-                        .setCustomAnimations(R.animator.show, 0)
-                SecondFragment.newInstance()
-            } else {
-                transaction
-                        .setCustomAnimations(0, R.animator.hide)
-                MainFragment.newInstance()
-            }.also {
-                transaction
-                    .replace(R.id.container, it)
-                    .commitNow()
-            }
-        }
     }
 }
