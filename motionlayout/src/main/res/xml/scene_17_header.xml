@@ -22,10 +22,6 @@
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
         motion:motionInterpolator="linear">
-        <OnSwipe
-            motion:touchAnchorId="@+id/background"
-            motion:touchAnchorSide="bottom"
-            motion:dragDirection="dragUp" />
 
         <ConstraintSet android:id="@+id/start">
             <Constraint
